@@ -1,0 +1,33 @@
+restaurant_id,restaurant_name,restaurant_rating,restaurant_type
+1,Subway,3,fastfood
+2,"Taco Bell",3,fastfood
+3,McDonald's,3,fastfood
+4,"Sushi ichiban",3,"Janpense food"
+5,"Kung Fu Tea",3,"Chinese food"
+6,"EVO cafe",3,Chinese
+7,"Jimmy John's",3,fastfood
+8,Yogi,3,"Korean food"
+9,"Panda Express",3,fastfood
+10,Pokelab,3,fastfood
+11,"Signature Grill",3,Grill
+12,"Oozu Ramen",3,"Japenese food"
+13,"Ambar india Restaurant",3,"India food"
+14,"Mid-Summer Lounge",3,"Chineses food"
+15,"Insomnia Cookies",3,snack
+16,Sakanaya,3,"Japenese food"
+17,"Bangkok Thai And Pho",3,"Thai food"
+18,"Jurassic Grill Champaign",3,Grill
+19,"C-U LaLa Noodle",3,fastfood
+20,"Potbelly Sandwich Shop",3,fastfood
+21,"Forage Kitchen",3,fastfood
+22,"Fat Sandwich Company",3,fastfood
+23,"Chipotle Mexican Grill",3,Grill
+24,"Tacool Tacos",3,"Mexican food"
+25,"Lai Lai Work",3,"Chinese food"
+26,Four,3,fastfood
+27,"Jipbap Taste",3,"Korean food"
+28,Meatheads,3,fastfood
+29,Wendy's,3,fastfood
+30,Chick-fil-A,3,fastfood
+31,"Burger King",3,fastfood
+32,"D.P. Dough",3,fastfood
