@@ -13,7 +13,7 @@ function List(props) {
     })
     return (
         <ul>
-            {filteredData.filter((_,idx) => (idx<5)).map((item) => (
+            {filteredData.filter((_,idx) => (idx<10)).map((item) => (
                 <div key={item.id}>{
                     <p>
                         {item.name}<br></br>
