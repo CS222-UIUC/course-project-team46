@@ -87,7 +87,6 @@ function RestaurantList(props) {
         </TableContainer>
         </div>
     );
-  
 }
 
 export default RestaurantList;
