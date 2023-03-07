@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, TableSortLabel } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
 import data from './restaurant-data.json';
 import StarRating from '../StarRating';
+import RestaurantListHeader from '../RestaurantListHeader'
 
 function RestaurantList(props) {
     const { searchText, page, setPage } = props;
@@ -15,13 +16,21 @@ function RestaurantList(props) {
         setOrderBy(property);
     };
 
+    const filteredData = data.filter((el) => {
+        if (searchText === '') {
+            return el;
+        } else {
+            return el.name.toLowerCase().includes(searchText)
+        }
+    });
+
     const renderRow = (item) => {
         return (
         <TableRow key={item.id}>
             <TableCell>{item.name}</TableCell>
             <TableCell>{item.address}</TableCell>
             <TableCell>
-            <StarRating rating={item.rate} />
+                <StarRating rating={item.rate} />
             </TableCell>
         </TableRow>
         );
@@ -45,10 +54,10 @@ function RestaurantList(props) {
 
     const descendingComparator = (a, b, orderBy) => {
         if (b[orderBy] < a[orderBy]) {
-        return -1;
+            return -1;
         }
         if (b[orderBy] > a[orderBy]) {
-        return 1;
+            return 1;
         }
         return 0;
     };
@@ -57,36 +66,13 @@ function RestaurantList(props) {
         <div>
         <TableContainer>
             <Table>
-            <TableHead>
-                <TableRow>
-                <TableCell>
-                    Name
-                </TableCell>
-                <TableCell>
-                    Address
-                </TableCell>
-                <TableCell sortDirection={orderBy === 'rate' ? order : false}>
-                    Rating
-                    <TableSortLabel
-                    active={orderBy === 'rate'}
-                    direction={order}
-                    onClick={(event) => handleRequestSort(event, 'rate')}
-                    />
-                </TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {stableSort(data, getComparator(order, orderBy))
-                .filter((el) => {
-                    if (searchText === '') {
-                    return el;
-                    } else {
-                    return el.name.toLowerCase().includes(searchText)
-                    }
-                })
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((item) => renderRow(item))}
-            </TableBody>
+                <RestaurantListHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
+                
+                <TableBody>
+                    {stableSort(filteredData, getComparator(order, orderBy))
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((item) => renderRow(item))}
+                </TableBody>
             </Table>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 50]}
