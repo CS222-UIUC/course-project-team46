@@ -1,31 +1,24 @@
 import { React, useState } from "react";
-import TextField from "@mui/material/TextField";
-import List from "../OldList";
-import "./styles.css";
 
-function Search() {
-    const [inputText, setInputText] = useState("");
-    let inputHandler = (e) => {
-        //convert input text to lower case
-        var lowerCase = e.target.value.toLowerCase();
-        setInputText(lowerCase);
+import RestaurantList from '../RestaurantList';
+import Search from "../Search";
+
+function SearchBar() {
+    const [inputText, setInputText] = useState('');
+
+    const handleSearch = (text) => {
+        setInputText(text);
     };
 
     return (
-        <div className="main">
-            <h1>Reataurant Search</h1>
-            <div className="search">
-                <TextField
-                    id="outlined-basic"
-                    onChange={inputHandler}
-                    variant="outlined"
-                    fullWidth
-                    label="Search"
-                />
-            </div>
-            <List input={inputText} />
+        <div>
+            <Search 
+                value={inputText}
+                onSearch={handleSearch}
+            />
+            <RestaurantList searchText={inputText} />
         </div>
     );
 }
 
-export default Search;
+export default SearchBar;
