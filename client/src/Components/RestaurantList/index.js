@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
+import { Table, TableHead , TableBody, TableFooter, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
 import data from './restaurant-data.json';
 import StarRating from '../StarRating';
 import RestaurantListHeader from '../RestaurantListHeader'
@@ -66,23 +66,28 @@ function RestaurantList(props) {
         <div>
         <TableContainer>
             <Table>
-                <TableBody>
+                <TableHead>
                     <RestaurantListHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
-                    
+                </TableHead>
+
+                <TableBody>
                     {stableSort(filteredData, getComparator(order, orderBy))
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item) => renderRow(item))}
                 </TableBody>
                 
-                <TablePagination
-                    rowsPerPageOptions={[10, 25, 50]}
-                    component="div"
-                    count={data.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={(event, newPage) => setPage(newPage)}
-                    onRowsPerPageChange={(event) => setRowsPerPage(event.target.value)}
-                />
+                <TableFooter>
+                    <TableRow>
+                        <TablePagination
+                            rowsPerPageOptions={[10, 25, 50]}
+                            count={data.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={(event, newPage) => setPage(newPage)}
+                            onRowsPerPageChange={(event) => setRowsPerPage(event.target.value)}
+                        />
+                    </TableRow>
+                </TableFooter>
             </Table>
         </TableContainer>
         </div>
