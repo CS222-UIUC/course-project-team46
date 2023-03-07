@@ -73,16 +73,17 @@ function RestaurantList(props) {
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item) => renderRow(item))}
                 </TableBody>
+                
+                <TablePagination
+                    rowsPerPageOptions={[10, 25, 50]}
+                    component="div"
+                    count={data.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={(event, newPage) => setPage(newPage)}
+                    onRowsPerPageChange={(event) => setRowsPerPage(event.target.value)}
+                />
             </Table>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 50]}
-                component="div"
-                count={data.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={(event, newPage) => setPage(newPage)}
-                onChangeRowsPerPage={(event) => setRowsPerPage(event.target.value)}
-            />
         </TableContainer>
         </div>
     );
