@@ -4,8 +4,7 @@ import data from './restaurant-data.json';
 import StarRating from '../StarRating';
 
 function RestaurantList(props) {
-    const { searchText } = props;
-    const [page, setPage] = useState(0);
+    const { searchText, page, setPage } = props;
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('rate');
