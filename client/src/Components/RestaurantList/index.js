@@ -7,7 +7,7 @@ import RestaurantListHeader from '../RestaurantListHeader'
 function RestaurantList(props) {
     const { searchText, page, setPage } = props;
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [order, setOrder] = useState('asc');
+    const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');
 
     const handleRequestSort = (event, property) => {
