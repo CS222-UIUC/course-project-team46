@@ -66,9 +66,9 @@ function RestaurantList(props) {
         <div>
         <TableContainer>
             <Table>
-                <RestaurantListHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
-                
                 <TableBody>
+                    <RestaurantListHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
+                    
                     {stableSort(filteredData, getComparator(order, orderBy))
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item) => renderRow(item))}

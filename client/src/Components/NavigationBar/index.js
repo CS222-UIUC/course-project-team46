@@ -6,7 +6,7 @@ import './style.css'
 
 function NavigationBar(props) {
   return (
-    <AppBar position="static" className="NavigationBar-root" marginTop="-64px">
+    <AppBar position="static" className="NavigationBar-root">
         <Toolbar>
             <Box marginLeft="1rem">
                 <Typography variant="h6" component="div">
