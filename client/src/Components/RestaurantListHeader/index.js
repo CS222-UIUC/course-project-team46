@@ -4,6 +4,11 @@ import { TableCell, TableRow, TableSortLabel } from '@material-ui/core';
 function RestaurantListHeader(props) {
     const { order, orderBy, onRequestSort } = props;
 
+    /**
+     * called when user click any sort buttom
+     * 
+     * @param {*} property 
+     */
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };

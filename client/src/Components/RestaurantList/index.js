@@ -1,3 +1,7 @@
+/**
+* @description: List (Table) of restaurant by using `data`
+*/
+
 import { React, useState } from 'react';
 import { Table, TableHead , TableBody, TableFooter, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
 import data from './restaurant-data.json';
@@ -10,13 +14,19 @@ function RestaurantList(props) {
     const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');
 
+    /**
+     * Sort when user click any sort button
+     * 
+     * @param {*} event 
+     * @param {*} property name / address / rate
+     */
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(property);
     };
 
-    // get restaurants contaions letter user type in
+    // get restaurants contaions `searchText`
     const filteredData = data.filter((el) => {
         if (searchText === '') {
             return el;
@@ -25,6 +35,10 @@ function RestaurantList(props) {
         }
     });
 
+    /**
+     * 
+     * @returns put `item` into table
+     */
     const renderRow = (item) => {
         return (
         <TableRow key={item.id}>
@@ -37,7 +51,13 @@ function RestaurantList(props) {
         );
     };
 
-    // sort
+    /**
+     * Sort array depends on `comparator`
+     * 
+     * @param {*} array 
+     * @param {*} comparator 
+     * @returns 
+     */
     const stableSort = (array, comparator) => {
         const stabilizedThis = array.map((el, index) => [el, index]);
         stabilizedThis.sort((a, b) => {
@@ -48,12 +68,27 @@ function RestaurantList(props) {
         return stabilizedThis.map((el) => el[0]);
     };
 
+    /**
+     * `comparator` for stableSort function
+     * 
+     * @param {*} order asc / desc
+     * @param {*} orderBy name of property
+     * @returns 
+     */
     const getComparator = (order, orderBy) => {
         return order === 'desc'
         ? (a, b) => descendingComparator(a, b, orderBy)
         : (a, b) => -descendingComparator(a, b, orderBy);
     };
 
+    /**
+     * 
+     * @param {*} a 
+     * @param {*} b 
+     * @param {*} orderBy name of property
+     * 
+     * @returns {int} positive when a < b, negative when a > b
+     */
     const descendingComparator = (a, b, orderBy) => {
         if (b[orderBy] < a[orderBy]) {
             return -1;
