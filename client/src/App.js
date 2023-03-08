@@ -1,6 +1,6 @@
 import './App.css';
 
-import SearchBar from './Components/SearchBar'
+import Search from './Components/Search'
 import AppBar from './Components/AppBar'
 // import NavigationBar from './Components/NavigationBar';
 
@@ -9,7 +9,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <AppBar />
-                <SearchBar/>
+                <Search/>
             </header>
         </div>
     );

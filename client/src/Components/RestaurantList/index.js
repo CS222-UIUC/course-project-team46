@@ -16,6 +16,7 @@ function RestaurantList(props) {
         setOrderBy(property);
     };
 
+    // get restaurants contaions letter user type in
     const filteredData = data.filter((el) => {
         if (searchText === '') {
             return el;
@@ -36,6 +37,7 @@ function RestaurantList(props) {
         );
     };
 
+    // sort
     const stableSort = (array, comparator) => {
         const stabilizedThis = array.map((el, index) => [el, index]);
         stabilizedThis.sort((a, b) => {

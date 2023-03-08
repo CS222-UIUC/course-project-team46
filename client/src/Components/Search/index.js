@@ -1,15 +1,30 @@
-import React from 'react';
-import { TextField } from '@material-ui/core';
+import { React, useState } from "react";
 
-function SearchBar(props) {
+import RestaurantList from '../RestaurantList';
+import SearchBar from "../SearchBar";
+
+function Search() {
+    const [inputText, setInputText] = useState('');
+    const [page, setPage] = useState(0);
+
+    const handleSearch = (text) => {
+        setInputText(text);
+        setPage(0);
+    };
+
     return (
-        <TextField
-            label="Search"
-            variant="outlined"
-            fullWidth
-            onChange={(e) => props.onSearch(e.target.value)}
-        />
+        <div>
+            <SearchBar 
+                value={inputText}
+                onSearch={handleSearch}
+            />
+            <RestaurantList
+                searchText={inputText}
+                page={page}
+                setPage={setPage}
+            />
+        </div>
     );
 }
 
-export default SearchBar;
+export default Search;
