@@ -3,10 +3,10 @@
 */
 
 import { React, useState } from 'react';
-import { Table, TableHead , TableBody, TableFooter, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
+import { Table, TableHead , TableBody, TableFooter, TableContainer, TableRow, TablePagination } from '@material-ui/core';
 import data from './restaurant-data.json';
-import StarRating from '../StarRating';
 import RestaurantListHeader from './RestaurantListHeader.js'
+import RenderRow from './RenderRow.js'
 
 function RestaurantList(props) {
     const { searchText, page, setPage } = props;
@@ -36,21 +36,6 @@ function RestaurantList(props) {
             return el.name.toLowerCase().includes(searchText)
         }
     });
-
-    /**
-     * Put `item` into table
-     */
-    const renderRow = (item) => {
-        return (
-        <TableRow key={item.id}>
-            <TableCell>{item.name}</TableCell>
-            <TableCell>{item.address}</TableCell>
-            <TableCell>
-                <StarRating rating={item.rate} />
-            </TableCell>
-        </TableRow>
-        );
-    };
 
     /**
      * Sort array depends on `comparator`
@@ -110,8 +95,8 @@ function RestaurantList(props) {
 
                 <TableBody>
                     {stableSort(filteredData, getComparator(order, orderBy))
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((item) => renderRow(item))}
+                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        .map((item) => <RenderRow item={item} />)}
                 </TableBody>
                 
                 <TableFooter>
