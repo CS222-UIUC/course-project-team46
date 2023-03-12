@@ -4,12 +4,12 @@
 
 import { React, useState } from 'react';
 import { Table, TableHead , TableBody, TableFooter, TableContainer, TableRow, TablePagination } from '@material-ui/core';
-import data from './restaurant-data.json';
+//import data from './restaurant-data.json';
 import RestaurantListHeader from './RestaurantListHeader.js'
 import RenderRow from './RenderRow.js'
 
 function RestaurantList(props) {
-    const { searchText, page, setPage } = props;
+    const { searchText, data, page, setPage } = props;
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');

@@ -4,12 +4,13 @@ import Search from '../../components/Search'
 import AppBar from '../../components/AppBar'
 // import NavigationBar from '../../components/NavigationBar';
 
-function HomePage() {
+function HomePage(props) {
+    const { restaurantsData } = props;
     return (
         <div className="HomePage">
             <header className="HomePage-header">
                 <AppBar />
-                <Search/>
+                <Search restaurantsData={restaurantsData} />
             </header>
         </div>
     );

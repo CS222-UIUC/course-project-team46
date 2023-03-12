@@ -39,6 +39,9 @@ function RestaurantListHeader(props) {
                 onClick={createSortHandler('rate')}
                 />
             </TableCell>
+            <TableCell>
+                Type
+            </TableCell>
         </TableRow>
     );
 }
