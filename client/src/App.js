@@ -1,16 +1,17 @@
 import './App.css';
 
-import Search from './components/Search'
-import AppBar from './components/AppBar'
-// import NavigationBar from './components/NavigationBar';
+import { Route, Routes } from "react-router-dom";
+
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <AppBar />
-                <Search/>
-            </header>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
         </div>
     );
 }
