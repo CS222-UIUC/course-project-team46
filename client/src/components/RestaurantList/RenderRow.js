@@ -12,8 +12,14 @@ function RenderRow(props) {
 
     return (
         <TableRow key={restaurantData.restaurant_id}>
-            <TableCell>{restaurantData.restaurant_name}</TableCell>
-            <TableCell><Link to={`https://www.google.com/maps/search/${restaurantData.restaurant_address}`}>{restaurantData.restaurant_address}</Link></TableCell>
+            <TableCell>
+                <Link to={`/restaurant/${restaurantData.restaurant_id}`}>{restaurantData.restaurant_name}</Link>
+            </TableCell>
+            <TableCell>
+                <Link to={`https://www.google.com/maps/search/${restaurantData.restaurant_address}`}>
+                    {restaurantData.restaurant_address}
+                </Link>
+            </TableCell>
             <TableCell>
                 <Rating
                     name={`restaurant-${restaurantData.restaurant_id}-rating`}

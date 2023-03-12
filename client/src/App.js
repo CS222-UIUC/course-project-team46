@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from './pages/HomePage';
+import RestaurantDetailPage from './pages/RestaurantDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import data from './data/restaurants.json';
@@ -11,7 +12,8 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path="/" element={<HomePage restaurantsData={data} />} />
+                <Route exact path="/" element={<HomePage restaurantsData={data} />} />
+                <Route exact path="/restaurant/:id" element={<RestaurantDetailPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
