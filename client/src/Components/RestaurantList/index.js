@@ -15,7 +15,9 @@ function RestaurantList(props) {
     const [orderBy, setOrderBy] = useState('rate');
 
     /**
-     * Sort when user click any sort button
+     * Sort by data in `property` column
+     * 
+     * Called when user click any sort button
      * 
      * @param {*} event 
      * @param {*} property name / address / rate
@@ -36,8 +38,7 @@ function RestaurantList(props) {
     });
 
     /**
-     * 
-     * @returns put `item` into table
+     * Put `item` into table
      */
     const renderRow = (item) => {
         return (
@@ -63,7 +64,7 @@ function RestaurantList(props) {
         stabilizedThis.sort((a, b) => {
         const order = comparator(a[0], b[0]);
         if (order !== 0) return order;
-        return a[1] - b[1];
+            return a[1] - b[1];
         });
         return stabilizedThis.map((el) => el[0]);
     };
@@ -77,8 +78,8 @@ function RestaurantList(props) {
      */
     const getComparator = (order, orderBy) => {
         return order === 'desc'
-        ? (a, b) => descendingComparator(a, b, orderBy)
-        : (a, b) => -descendingComparator(a, b, orderBy);
+            ? (a, b) => descendingComparator(a, b, orderBy)
+            : (a, b) => -descendingComparator(a, b, orderBy);
     };
 
     /**
