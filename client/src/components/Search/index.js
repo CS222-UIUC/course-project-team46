@@ -3,7 +3,8 @@ import { React, useState } from "react";
 import RestaurantList from '../RestaurantList';
 import SearchBar from "../SearchBar";
 
-function Search() {
+function Search(props) {
+    const { restaurantsData } = props;
     // user input
     const [inputText, setInputText] = useState('');
     // current user page
@@ -27,6 +28,7 @@ function Search() {
             />
             <RestaurantList
                 searchText={inputText}
+                data={restaurantsData}
                 page={page}
                 setPage={setPage}
             />

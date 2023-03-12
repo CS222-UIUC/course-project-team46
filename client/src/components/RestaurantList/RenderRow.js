@@ -11,16 +11,17 @@ function RenderRow(props) {
     const { restaurantData } = props;
 
     return (
-        <TableRow key={restaurantData.id}>
-            <TableCell>{restaurantData.name}</TableCell>
-            <TableCell><Link to={`https://www.google.com/maps/search/${restaurantData.address}`}>{restaurantData.address}</Link></TableCell>
+        <TableRow key={restaurantData.restaurant_id}>
+            <TableCell>{restaurantData.restaurant_name}</TableCell>
+            <TableCell><Link to={`https://www.google.com/maps/search/${restaurantData.restaurant_address}`}>{restaurantData.restaurant_address}</Link></TableCell>
             <TableCell>
                 <Rating
-                    name={`restaurant-${restaurantData.id}-rating`}
-                    defaultValue={restaurantData.rate}
+                    name={`restaurant-${restaurantData.restaurant_id}-rating`}
+                    defaultValue={restaurantData.restaurant_rating}
                     readOnly
                 />
             </TableCell>
+            <TableCell> {restaurantData.restaurant_type} </TableCell>
         </TableRow>
     );
 }
