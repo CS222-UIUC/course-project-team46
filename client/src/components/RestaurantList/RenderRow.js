@@ -1,19 +1,25 @@
 import { React } from 'react';
+import { Link } from 'react-router-dom';
 import { TableCell, TableRow } from '@material-ui/core';
-import StarRating from '../StarRating';
+//import StarRating from '../StarRating';
+import Rating from '@mui/material/Rating';
 
 /**
- * Put `item` into table
+ * Put `restaurantData` into table
  */
 function RenderRow(props) {
-    const { item } = props;
+    const { restaurantData } = props;
 
     return (
-        <TableRow key={item.id}>
-            <TableCell>{item.name}</TableCell>
-            <TableCell>{item.address}</TableCell>
+        <TableRow key={restaurantData.id}>
+            <TableCell>{restaurantData.name}</TableCell>
+            <TableCell><Link to={`https://www.google.com/maps/search/${restaurantData.address}`}>{restaurantData.address}</Link></TableCell>
             <TableCell>
-                <StarRating rating={item.rate} />
+                <Rating
+                    name={`restaurant-${restaurantData.id}-rating`}
+                    defaultValue={restaurantData.rate}
+                    readOnly
+                />
             </TableCell>
         </TableRow>
     );
