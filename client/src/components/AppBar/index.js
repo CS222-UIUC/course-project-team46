@@ -15,8 +15,6 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
-// import Search from "../Search";
-
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -82,7 +80,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
+    const { inputText , handleSearch } = props;
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -193,6 +192,7 @@ export default function PrimarySearchAppBar() {
                             input: classes.inputInput,
                         }}
                         inputProps={{ 'aria-label': 'search' }}
+                        onChange={(e) => props.handleSearch(e.target.value)}
                     />
                 </div>
                 <div className={classes.grow} />

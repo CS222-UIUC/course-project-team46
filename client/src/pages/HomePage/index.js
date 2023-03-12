@@ -27,10 +27,8 @@ function HomePage(props) {
     return (
         <div className="HomePage">
             <header className="HomePage-header">
-                <AppBar />
-                <SearchBar 
-                    value={inputText}
-                    onSearch={handleSearch}
+                <AppBar 
+                    handleSearch={handleSearch}
                 />
                 <Search 
                     restaurantsData={restaurantsData}
