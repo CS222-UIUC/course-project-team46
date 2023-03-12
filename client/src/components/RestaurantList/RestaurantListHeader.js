@@ -18,25 +18,25 @@ function RestaurantListHeader(props) {
             <TableCell>
                 Name
                 <TableSortLabel
-                active={orderBy === 'name'}
-                direction={orderBy === 'name' ? order : 'asc'}
-                onClick={createSortHandler('name')}
+                    active={orderBy === 'restaurant_name'}
+                    direction={orderBy === 'restaurant_name' ? order : 'asc'}
+                    onClick={createSortHandler('restaurant_name')}
                 />
             </TableCell>
             <TableCell>
                 Address
                 <TableSortLabel
-                active={orderBy === 'address'}
-                direction={orderBy === 'address' ? order : 'asc'}
-                onClick={createSortHandler('address')}
+                    active={orderBy === 'restaurant_address'}
+                    direction={orderBy === 'restaurant_address' ? order : 'asc'}
+                    onClick={createSortHandler('restaurant_address')}
                 />
             </TableCell>
             <TableCell>
                 Rating
                 <TableSortLabel
-                active={orderBy === 'rate'}
-                direction={orderBy === 'rate' ? order : 'asc'}
-                onClick={createSortHandler('rate')}
+                    active={orderBy === 'restaurant_rating'}
+                    direction={orderBy === 'restaurant_rating' ? order : 'asc'}
+                    onClick={createSortHandler('restaurant_rating')}
                 />
             </TableCell>
             <TableCell>
