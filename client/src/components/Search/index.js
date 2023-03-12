@@ -1,31 +1,12 @@
 import { React, useState } from "react";
 
 import RestaurantList from '../RestaurantList';
-import SearchBar from "../SearchBar";
 
 function Search(props) {
-    const { restaurantsData } = props;
-    // user input
-    const [inputText, setInputText] = useState('');
-    // current user page
-    const [page, setPage] = useState(0);
-
-    /**
-     * Called when the text in box change
-     * 
-     * @param {*} text new test that user input
-     */
-    const handleSearch = (text) => {
-        setInputText(text);
-        setPage(0);
-    };
+    const { restaurantsData , inputText , page , setPage } = props;
 
     return (
         <div>
-            <SearchBar 
-                value={inputText}
-                onSearch={handleSearch}
-            />
             <RestaurantList
                 searchText={inputText}
                 data={restaurantsData}
