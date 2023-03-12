@@ -6,7 +6,7 @@ import { React, useState } from 'react';
 import { Table, TableHead , TableBody, TableFooter, TableCell, TableContainer, TableRow, TablePagination } from '@material-ui/core';
 import data from './restaurant-data.json';
 import StarRating from '../StarRating';
-import RestaurantListHeader from '../RestaurantListHeader'
+import RestaurantListHeader from './RestaurantListHeader.js'
 
 function RestaurantList(props) {
     const { searchText, page, setPage } = props;
