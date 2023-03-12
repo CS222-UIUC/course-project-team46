@@ -1,8 +1,8 @@
 import './App.css';
 
-import Search from './Components/Search'
-import AppBar from './Components/AppBar'
-// import NavigationBar from './Components/NavigationBar';
+import Search from './components/Search'
+import AppBar from './components/AppBar'
+// import NavigationBar from './components/NavigationBar';
 
 function App() {
     return (
