@@ -99,7 +99,7 @@ function RestaurantList(props) {
                 <TableBody>
                     {stableSort(filteredData, getComparator(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((item) => <RenderRow restaurantData={item} />)}
+                        .map((item) => <RenderRow key={`restaurantRow-${item.restaurant_id}`} restaurantData={item} />)}
                 </TableBody>
                 
                 <TableFooter>
