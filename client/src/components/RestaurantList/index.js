@@ -4,7 +4,7 @@
 
 import { React, useState } from 'react';
 import { Table, TableHead , TableBody, TableFooter, TableContainer, TableRow, TablePagination } from '@material-ui/core';
-//import data from './restaurant-data.json';
+
 import RestaurantListHeader from './RestaurantListHeader.js'
 import RenderRow from './RenderRow.js'
 
@@ -30,10 +30,13 @@ function RestaurantList(props) {
 
     // get restaurants contaions `searchText`
     const filteredData = data.filter((el) => {
+        if (!el) {
+            return false;
+        }
         if (searchText === '') {
             return el;
         } else {
-            return el.name.toLowerCase().includes(searchText)
+            return el.restaurant_name.toLowerCase().includes(searchText)
         }
     });
 

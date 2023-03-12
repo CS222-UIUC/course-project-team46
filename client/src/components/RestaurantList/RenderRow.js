@@ -24,6 +24,7 @@ function RenderRow(props) {
                 <Rating
                     name={`restaurant-${restaurantData.restaurant_id}-rating`}
                     defaultValue={restaurantData.restaurant_rating}
+                    precision={0.1}
                     readOnly
                 />
             </TableCell>
