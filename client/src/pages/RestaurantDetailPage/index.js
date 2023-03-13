@@ -2,6 +2,7 @@ import './RestaurantDetailPage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import AppBar from '../../components/AppBar'
 
 import { Box, Rating, Typography } from '@mui/material';
 
@@ -27,11 +28,11 @@ function RestaurantDetailPage(props) {
       }
     }, [id, restaurant]);
   
-    */
     function handleGoBack() {
       // Navigate back to the main page
       window.history.back();
     }
+    */
   
     if (!restaurant) {
       // Render a loading spinner or message if the data is still loading
@@ -40,6 +41,8 @@ function RestaurantDetailPage(props) {
 
   return (
     <div>
+      <AppBar 
+                />
     <h1>{restaurant.restaurant_name}</h1>
 
     <div className="restaurant-details">
@@ -81,7 +84,6 @@ function RestaurantDetailPage(props) {
         <div>No menu available.</div>
     )}
     
-    <button onClick={handleGoBack}>Go back to the main page</button>
   </div>
   );
 }
