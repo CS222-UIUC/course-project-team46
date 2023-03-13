@@ -2,10 +2,9 @@ import './Homepage.css';
 
 import { React, useState } from "react";
 
-import Search from '../../components/Search'
 import AppBar from '../../components/AppBar'
-//import SearchBar from "../../components/SearchBar";
-// import NavigationBar from '../../components/NavigationBar';
+import Box from '@mui/material/Box';
+import RestaurantList from '../../components/RestaurantList'
 
 function HomePage(props) {
     const { restaurantsData } = props;
@@ -23,6 +22,18 @@ function HomePage(props) {
         setInputText(text);
         setPage(0);
     };
+    
+    // get restaurants contaions `searchText`
+    const filteredData = restaurantsData.filter((el) => {
+        if (!el) {
+            return false;
+        }
+        if (inputText === '') {
+            return el;
+        } else {
+            return el.restaurant_name.toLowerCase().includes(inputText);
+        }
+    });
 
     return (
         <div className="HomePage">
@@ -30,12 +41,14 @@ function HomePage(props) {
                 <AppBar 
                     handleSearch={handleSearch}
                 />
-                <Search 
-                    restaurantsData={restaurantsData}
-                    inputText={inputText}
-                    page={page}
-                    setPage={setPage}
-                />
+                <Box sx={{ mt: 8 }}>
+                    <RestaurantList
+                        data={filteredData}
+                        page={page}
+                        setPage={setPage}
+                    />
+                </Box>
+                
             </header>
         </div>
     );

@@ -9,7 +9,7 @@ import RestaurantListHeader from './RestaurantListHeader.js'
 import RenderRow from './RenderRow.js'
 
 function RestaurantList(props) {
-    const { searchText, data, page, setPage } = props;
+    const { data, page, setPage } = props;
     
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState('desc');
@@ -29,20 +29,8 @@ function RestaurantList(props) {
         setOrderBy(property);
     };
 
-    // get restaurants contaions `searchText`
-    const filteredData = data.filter((el) => {
-        if (!el) {
-            return false;
-        }
-        if (searchText === '') {
-            return el;
-        } else {
-            return el.restaurant_name.toLowerCase().includes(searchText)
-        }
-    });
-
     // Determine if there are search results, if not then return a message
-    if (filteredData.length === 0) {
+    if (data.length === 0) {
         return (
             <div>
                 <h2>No results found.</h2>
@@ -108,7 +96,7 @@ function RestaurantList(props) {
                 </TableHead>
 
                 <TableBody>
-                    {stableSort(filteredData, getComparator(order, orderBy))
+                    {stableSort(data, getComparator(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((item) => <RenderRow key={`restaurantRow-${item.restaurant_id}`} restaurantData={item} />)}
                 </TableBody>
