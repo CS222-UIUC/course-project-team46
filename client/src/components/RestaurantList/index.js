@@ -10,6 +10,7 @@ import RenderRow from './RenderRow.js'
 
 function RestaurantList(props) {
     const { searchText, data, page, setPage } = props;
+    
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');
@@ -40,6 +41,16 @@ function RestaurantList(props) {
         }
     });
 
+    // Determine if there are search results, if not then return a message
+    if (filteredData.length === 0) {
+        return (
+            <div>
+                <h2>No results found.</h2>
+                <p>Sorry, we couldn't find any results that matched your search criteria.</p>
+            </div>
+        );
+    }
+    
     /**
      * Sort array depends on `comparator`
      * 

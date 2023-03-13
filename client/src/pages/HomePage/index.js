@@ -4,7 +4,7 @@ import { React, useState } from "react";
 
 import Search from '../../components/Search'
 import AppBar from '../../components/AppBar'
-import SearchBar from "../../components/SearchBar";
+//import SearchBar from "../../components/SearchBar";
 // import NavigationBar from '../../components/NavigationBar';
 
 function HomePage(props) {
