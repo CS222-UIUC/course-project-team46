@@ -38,8 +38,10 @@ function ResponsiveAppBar(props) {
         setAnchorElUser(null);
     };
 
+    // Keeps at the top when scrolling up and down
+    // zIndex: ensure that it is always above other elements
     return (
-        <AppBar position="static">
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/* Logo */}
