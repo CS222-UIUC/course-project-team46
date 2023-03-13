@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { TableCell, TableRow, TableSortLabel } from '@material-ui/core';
+import { TableCell, TableRow, TableSortLabel } from '@mui/material';
 
 function RestaurantListHeader(props) {
     const { order, orderBy, onRequestSort } = props;

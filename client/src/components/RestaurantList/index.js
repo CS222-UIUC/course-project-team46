@@ -3,7 +3,7 @@
 */
 
 import { React, useState } from 'react';
-import { Table, TableHead , TableBody, TableFooter, TableContainer, TableRow, TablePagination } from '@material-ui/core';
+import { Table, TableHead , TableBody, TableFooter, TableContainer, TableRow, TablePagination } from '@mui/material';
 
 import RestaurantListHeader from './RestaurantListHeader.js'
 import RenderRow from './RenderRow.js'

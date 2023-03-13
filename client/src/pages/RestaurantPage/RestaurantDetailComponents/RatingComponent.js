@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Rating from "@mui/material/Rating";
-import Box from "@mui/material/Box";
+import { Rating, Box } from "@mui/material";
 
 function RatingComponent(props) {
     const [rating, setRating] = useState(props.initialRating);
