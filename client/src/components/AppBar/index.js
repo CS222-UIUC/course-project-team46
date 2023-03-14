@@ -142,7 +142,11 @@ function ResponsiveAppBar(props) {
                             <StyledInputBase
                                 placeholder="Search…"
                                 inputProps={{ 'aria-label': 'search' }}
-                                onChange={(e) => props.handleSearch(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        props.handleSearch(e.target.value);
+                                    }
+                                }}
                             />
                         </Search>
                     </Box>
