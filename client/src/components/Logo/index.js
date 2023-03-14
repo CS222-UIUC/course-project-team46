@@ -1,12 +1,17 @@
 import React from 'react';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import Typography from '@mui/material/Typography';
 
 function Logo(props) {
     return (
         <>
             {/* Logo */}
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex', lg: 'flex' }, mr: 1 }} />
+            <img
+                src="static/logo/logo-100.svg"
+                alt="Logo"
+                style={{ width: "3%", height: "3%", objectFit: "contain" }}
+            />
+
             {/* Name */}
             <Typography
                 variant="h6"
@@ -28,7 +33,6 @@ function Logo(props) {
             </Typography>
 
             {/* Mobile version */}
-            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
             <Typography
                 variant="h5"
                 noWrap
