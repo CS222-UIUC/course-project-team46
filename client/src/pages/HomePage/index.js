@@ -4,7 +4,6 @@ import { React, useState } from "react";
 
 import AppBar from '../../components/AppBar'
 import Box from '@mui/material/Box';
-import RestaurantList from '../../components/RestaurantList'
 import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 
 const allCuisines = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
