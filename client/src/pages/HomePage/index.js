@@ -5,6 +5,9 @@ import { React, useState } from "react";
 import AppBar from '../../components/AppBar'
 import Box from '@mui/material/Box';
 import RestaurantList from '../../components/RestaurantList'
+import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
+
+const allCuisines = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
 
 function HomePage(props) {
     const { restaurantsData } = props;
@@ -41,9 +44,10 @@ function HomePage(props) {
                 <AppBar 
                     handleSearch={handleSearch}
                 />
-                <Box sx={{ mt: 8 }}>
-                    <RestaurantList
+                <Box sx={{ mt: 10 }}>
+                    <RestaurantListWithFilter
                         data={filteredData}
+                        allCuisines={allCuisines}
                         page={page}
                         setPage={setPage}
                     />
