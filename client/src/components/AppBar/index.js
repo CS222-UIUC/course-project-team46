@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -14,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-import { Search, SearchIconWrapper, StyledInputBase } from './style';
+import SearchBar from '../SearchBar';
 
 const pages = ['Page 1', 'Page 2', 'Page 3'];
 const settings = ['Profile', 'Account', 'Logout'];
@@ -135,20 +134,9 @@ function ResponsiveAppBar(props) {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}> 
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ 'aria-label': 'search' }}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        props.handleSearch(e.target.value);
-                                    }
-                                }}
-                            />
-                        </Search>
+                        <SearchBar 
+                            handleSearch={props.handleSearch}
+                        />
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
