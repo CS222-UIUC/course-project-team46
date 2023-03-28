@@ -44,8 +44,8 @@ function RestaurantDetailPage(props) {
     <div>
       <AppBar 
                 />
+    <Box sx={{ mt: 10 }}>
     <h1>{restaurant.restaurant_name}</h1>
-
     <div className="restaurant-details">
         <div className="restaurant-address">
             <Typography variant="body1">{restaurant.address}</Typography>
@@ -84,6 +84,8 @@ function RestaurantDetailPage(props) {
     ) : (
         <div>No menu available.</div>
     )}
+    </Box>
+    
     
   </div>
   );
