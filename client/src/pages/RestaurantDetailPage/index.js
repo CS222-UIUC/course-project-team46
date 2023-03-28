@@ -4,6 +4,7 @@ import './RestaurantDetailPage.css';
 import React from 'react';
 //import { useParams } from 'react-router-dom';
 import AppBar from '../../components/AppBar'
+import Commits from '../../components/Commits'
 
 import { Box, Grid } from '@mui/material';
 
@@ -135,15 +136,25 @@ function RestaurantDetailPage(props) {
             "dish_price": 37.57,
             "recommand_numebr": 2.4
         }]
-    /*
+
     const commits=[
         {
             "commits_id": 1,
             "user_id": 123,
             "detail": "this is a commit"
+        },
+        {
+            "commits_id": 2,
+            "user_id": 123,
+            "detail": "this is another commit"
+        },
+        {
+            "commits_id": 3,
+            "user_id": 123,
+            "detail": "Hello"
         }
     ]
-    */
+
     return (
         <div>
             <AppBar />
@@ -153,6 +164,7 @@ function RestaurantDetailPage(props) {
                     <Grid item xs={10}>
                         <RestaurantDetailPageHead detail={detail} />
                         <RestaurantDetailPageTabs detail={detail} menu={menu} />
+                        <Commits commitList={commits} />
                     </Grid>
                     <Grid item xs={1} />
                 </Grid>
