@@ -21,7 +21,7 @@ function Filter(props) {
                 />
             ))}
         </FormGroup>
-        <Button variant="outlined" onClick={handleClearSelection}>Clear Selection</Button>
+        <Button variant="outlined" onClick={handleClearSelection}>Reset Selection</Button>
     </FormControl>
   );
 }
