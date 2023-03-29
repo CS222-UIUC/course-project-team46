@@ -9,6 +9,7 @@ const allTypes = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean 
 function RestaurantListWithFilter(props) {
     const { restaurantData, page, setPage, maxPage, order, orderBy, handleRequestSort, handleChangePage, setSelectedTypesString } = props;
 
+    // initialize selectedTypes state using allTypes array
     const [selectedTypes, setSelectedTypes] = useState(
         allTypes.reduce((acc, type) => {
             acc[type] = true;
@@ -16,6 +17,7 @@ function RestaurantListWithFilter(props) {
         }, {})
     );
     
+    // update selectedTypes state on type change
     const handleTypeChange = (typeName) => {
         setSelectedTypes((prevState) => ({
             ...prevState,
@@ -23,6 +25,7 @@ function RestaurantListWithFilter(props) {
         }));
     };
     
+    // reset selectedTypes state to all types
     const handleResetSelection = () => {
         setSelectedTypes(
             Object.fromEntries(allTypes.map((type) => [type, true]))
@@ -30,6 +33,7 @@ function RestaurantListWithFilter(props) {
         setSelectedTypesString('All');
     };
 
+    // update selectedTypesString and page on submit
     const handleSubmitSelection = () => {
         setSelectedTypesString(
             Object.keys(selectedTypes)

@@ -3,6 +3,17 @@ import React from 'react';
 import { Typography, Grid, Link } from '@mui/material';
 
 const RestaurantDetails = ({ detail }) => {
+    /**
+     * @returns Working Hours
+     *  format:
+     *      Sunday: 10 AM-8:30 PM
+     *      Monday: 10 AM-8:30 PM
+     *      Tuesday: 10 AM-8:30 PM
+     *      Wednesday: 10 AM-8:30 PM
+     *      Thursday: 10 AM-8:30 PM
+     *      Friday: 10 AM-8:30 PM
+     *      Saturday: 10 AM-8:30 PM
+     */
     const renderWorkingHours = () => {
         return Object.entries(detail.restaurant_working_hours).map(([day, hours]) => (
             <Typography key={day} variant="body2">

@@ -21,6 +21,7 @@ function HomePage(props) {
 
     const [selectedTypesString, setSelectedTypesString] = useState('All');
 
+    // fetch restaurant data of current page, and number of total page
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/list?page=${page}&sortField=${orderBy}&sortOrder=${order}&type=${selectedTypesString}`);

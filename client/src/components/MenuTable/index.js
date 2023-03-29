@@ -1,4 +1,7 @@
 // MenuTable.js
+// @todo
+//      change to '/api/restaurant/:id/menu?sortField=${orderBy}&sortOrder=${order}'
+//      when api is finished
 import React, { useState } from 'react';
 import {
   Table,
@@ -19,8 +22,6 @@ const MenuTable = ({ menu }) => {
         handleRequestSort(event, property);
     };
 
-    // change to '/api/restaurant/:id/menu?sortField=${orderBy}&sortOrder=${order}'
-    //      when api is finished
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
