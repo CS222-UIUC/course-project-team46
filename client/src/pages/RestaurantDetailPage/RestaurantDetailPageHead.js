@@ -7,7 +7,7 @@ const RestaurantDetailPageHead = ({ detail }) => {
             sx={{
                 height: '50vh',
                 backgroundSize: 'cover',
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${detail.photo})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${detail.restaurant_photo})`,
                 display: 'flex',
                 alignItems: 'flex-end',
                 paddingBottom: 2,
@@ -17,16 +17,16 @@ const RestaurantDetailPageHead = ({ detail }) => {
         >
             <Box sx={{ marginLeft: 2 }}>
                 <Typography variant="h4" component="h1">
-                    {detail.name}
+                    {detail.restaurant_name}
                 </Typography>
                 <Rating
                     name={`restaurant-${detail.id}-rating`}
-                    defaultValue={detail.rating}
+                    defaultValue={detail.restaurant_rating}
                     precision={0.1}
                     readOnly
                 />
                 <Typography variant="subtitle1">
-                    {detail.type} | {detail.range}
+                    {detail.restaurant_type} | {detail.restaurant_range}
                 </Typography>
             </Box>
         </Box>

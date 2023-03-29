@@ -1,8 +1,6 @@
-import { React } from 'react';
+import { Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { TableCell, TableRow } from '@mui/material';
-//import StarRating from '../StarRating';
-import Rating from '@mui/material/Rating';
+import { TableCell, TableRow, Rating } from '@mui/material';
 
 /**
  * Put `restaurantData` into table
@@ -13,12 +11,14 @@ function RenderRow(props) {
     return (
         <TableRow key={restaurantData.restaurant_id}>
             <TableCell>
-                <Link to={`/restaurant/${restaurantData.restaurant_id}`}>{restaurantData.restaurant_name}</Link>
+                <MuiLink component={Link} to={`/restaurant/${restaurantData.restaurant_id}`} color="inherit" underline="none">
+                    {restaurantData.restaurant_name}
+                </MuiLink>
             </TableCell>
             <TableCell>
-                <Link to={`https://www.google.com/maps/search/${restaurantData.restaurant_address}`}>
+                <MuiLink href={`https://www.google.com/maps/search/${restaurantData.restaurant_address}`} color="inherit" underline="none">
                     {restaurantData.restaurant_address}
-                </Link>
+                </MuiLink>
             </TableCell>
             <TableCell>
                 <Rating
