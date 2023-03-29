@@ -4,8 +4,10 @@ import { Grid } from '@mui/material';
 import RestaurantList from '../RestaurantList';
 import Filter from '../Filter';
 
+const allCuisines = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
+
 function RestaurantListWithFilter(props) {
-    const { data, allCuisines , page , setPage } = props;
+    const { restaurantData, page, maxPage, order, orderBy, handleRequestSort, handleChangePage } = props;
 
     const [selectedCuisines, setSelectedCuisines] = useState(
         allCuisines.reduce((acc, cuisine) => {
@@ -35,7 +37,7 @@ function RestaurantListWithFilter(props) {
     };
 
     // Filter out restaurants that do not contain the currently selected cuisine
-    const filteredRestaurantData = data.filter((restaurant) => {
+    const filteredRestaurantData = restaurantData.filter((restaurant) => {
         if (selectedAllCuisines) {
             return true;
         } else {
@@ -48,14 +50,18 @@ function RestaurantListWithFilter(props) {
             <Grid item xs={0.3}>
                 <div />
             </Grid>
-            <Grid item xs={7} >
+            <Grid item xs={8} >
                 <RestaurantList
-                    data={filteredRestaurantData}
+                    restaurantData={restaurantData}
                     page={page}
-                    setPage={setPage}
+                    maxPage={maxPage}
+                    order={order}
+                    orderBy={orderBy}
+                    handleRequestSort={handleRequestSort}
+                    handleChangePage={handleChangePage}
                 />
             </Grid>
-            <Grid item xs={4} >
+            <Grid item xs={3} >
                 <Filter
                     allCuisines={allCuisines}
                     selectedCuisines={selectedCuisines}

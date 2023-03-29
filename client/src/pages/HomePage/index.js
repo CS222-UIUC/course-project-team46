@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Box, Grid } from '@mui/material';
 
 import AppBar from '../../components/AppBar'
-import RestaurantList from '../../components/RestaurantList'
+import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 
 function HomePage(props) {
     const [order, setOrder] = useState('desc');
@@ -50,9 +50,9 @@ function HomePage(props) {
                 <AppBar />
                 <Box sx={{ mt: 10 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={1} />
-                        <Grid item xs={10}>
-                            <RestaurantList
+                        <Grid item xs={0.5} />
+                        <Grid item xs={11}>
+                            <RestaurantListWithFilter
                                 restaurantData={restaurantData}
                                 page={page}
                                 maxPage={maxPage}
@@ -62,7 +62,7 @@ function HomePage(props) {
                                 handleChangePage={handleChangePage}
                             />
                         </Grid>
-                        <Grid item xs={1} />
+                        <Grid item xs={0.5} />
                     </Grid>
                 </Box>
             </header>
