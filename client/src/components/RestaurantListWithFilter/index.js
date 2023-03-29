@@ -4,46 +4,40 @@ import { Grid } from '@mui/material';
 import RestaurantList from '../RestaurantList';
 import Filter from '../Filter';
 
-const allCuisines = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
+const allTypes = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
 
 function RestaurantListWithFilter(props) {
-    const { restaurantData, page, maxPage, order, orderBy, handleRequestSort, handleChangePage } = props;
+    const { restaurantData, page, setPage, maxPage, order, orderBy, handleRequestSort, handleChangePage, setSelectedTypesString } = props;
 
-    const [selectedCuisines, setSelectedCuisines] = useState(
-        allCuisines.reduce((acc, cuisine) => {
-            acc[cuisine] = true;
+    const [selectedTypes, setSelectedTypes] = useState(
+        allTypes.reduce((acc, type) => {
+            acc[type] = true;
             return acc;
         }, {})
     );
-
-    const [selectedAllCuisines, setSelectedAllCuisines] = useState(true);
     
-    const handleCuisineChange = (cuisineName) => {
-        setSelectedCuisines((prevState) => ({
+    const handleTypeChange = (typeName) => {
+        setSelectedTypes((prevState) => ({
             ...prevState,
-            [cuisineName]: !prevState[cuisineName],
+            [typeName]: !prevState[typeName],
         }));
-        setSelectedAllCuisines(Object.values(selectedCuisines).every((selected) => selected));
     };
     
-    const handleClearSelection = () => {
-        setSelectedCuisines((prevState) =>
-            allCuisines.reduce((acc, cuisine) => {
-                acc[cuisine] = true;
-                return acc;
-            }, {})
+    const handleResetSelection = () => {
+        setSelectedTypes(
+            Object.fromEntries(allTypes.map((type) => [type, true]))
         );
-        setSelectedAllCuisines(true);
+        setSelectedTypesString('All');
     };
 
-    // Filter out restaurants that do not contain the currently selected cuisine
-    const filteredRestaurantData = restaurantData.filter((restaurant) => {
-        if (selectedAllCuisines) {
-            return true;
-        } else {
-            return selectedCuisines[restaurant.restaurant_type];
-        }
-    });
+    const handleSubmitSelection = () => {
+        setSelectedTypesString(
+            Object.keys(selectedTypes)
+                .filter((type) => selectedTypes[type])
+                .join(',')
+        );
+        setPage(1);
+    };
 
     return (
         <Grid container spacing={2}>
@@ -63,10 +57,11 @@ function RestaurantListWithFilter(props) {
             </Grid>
             <Grid item xs={3} >
                 <Filter
-                    allCuisines={allCuisines}
-                    selectedCuisines={selectedCuisines}
-                    handleCuisineChange={handleCuisineChange}
-                    handleClearSelection={handleClearSelection}
+                    allTypes={allTypes}
+                    selectedTypes={selectedTypes}
+                    handleTypeChange={handleTypeChange}
+                    handleResetSelection={handleResetSelection}
+                    handleSubmitSelection={handleSubmitSelection}
                 />
             </Grid>
         </Grid>
