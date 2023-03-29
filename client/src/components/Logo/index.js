@@ -5,13 +5,6 @@ import Typography from '@mui/material/Typography';
 function Logo(props) {
     return (
         <>
-            {/* Logo */}
-            <img
-                src="static/logo/logo-100.svg"
-                alt="Logo"
-                style={{ width: "3%", height: "3%", objectFit: "contain" }}
-            />
-
             {/* Name */}
             <Typography
                 variant="h6"
@@ -29,7 +22,7 @@ function Logo(props) {
                     textAlign: 'left',
                 }}
             >
-                Name
+                YumRev
             </Typography>
 
             {/* Mobile version */}
@@ -49,7 +42,7 @@ function Logo(props) {
                     textDecoration: 'none',
                 }}
             >
-                Name
+                YumRev
             </Typography>
         </>
     );
