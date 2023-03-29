@@ -12,27 +12,30 @@ function HomePage(props) {
     const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');
 
-    // 这里注意 API 是 0-index or 1-index
+    // Need to check API is 0-index or 1-index
     const [page, setPage] = useState(1);
 
     const [maxPage, setMaxPage] = useState(1);
 
     const [restaurantData, setRestaurantData] = useState([]);
 
+    const [selectedTypesString, setSelectedTypesString] = useState('All');
+
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/list?page=${page}&sortField=${orderBy}&sortOrder=${order}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/list?page=${page}&sortField=${orderBy}&sortOrder=${order}&type=${selectedTypesString}`);
 
             // console.log(order);
             // console.log(orderBy);
             // console.log(page);
+            console.log(selectedTypesString);
 
             setMaxPage(response.data.maxPage); // Get the maxPage from the API response
             setRestaurantData(response.data.data); // Get data from the API response
         };
 
         fetchData();
-    }, [order, orderBy, page]);
+    }, [order, orderBy, page, selectedTypesString]);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -55,11 +58,13 @@ function HomePage(props) {
                             <RestaurantListWithFilter
                                 restaurantData={restaurantData}
                                 page={page}
+                                setPage={setPage}
                                 maxPage={maxPage}
                                 order={order}
                                 orderBy={orderBy}
                                 handleRequestSort={handleRequestSort}
                                 handleChangePage={handleChangePage}
+                                setSelectedTypesString={setSelectedTypesString}
                             />
                         </Grid>
                         <Grid item xs={0.5} />
