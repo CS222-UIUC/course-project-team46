@@ -4,7 +4,7 @@ import { Typography, Grid, Link } from '@mui/material';
 
 const RestaurantDetails = ({ detail }) => {
     const renderWorkingHours = () => {
-        return Object.entries(detail.working_hours).map(([day, hours]) => (
+        return Object.entries(detail.restaurant_working_hours).map(([day, hours]) => (
             <Typography key={day} variant="body2">
                 {day}: {hours}
             </Typography>
@@ -15,17 +15,17 @@ const RestaurantDetails = ({ detail }) => {
         <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Website</Typography>
-                <Link href={detail.site} target="_blank" rel="noopener noreferrer">
-                    {detail.site}
+                <Link href={detail.restaurant_site} target="_blank" rel="noopener noreferrer">
+                    {detail.restaurant_site}
                 </Link>
             </Grid>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Phone</Typography>
-                <Typography>{detail.phone}</Typography>
+                <Typography>{detail.restaurant_phone}</Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Address</Typography>
-                <Typography>{detail.full_address}</Typography>
+                <Typography>{detail.restaurant_address}</Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Working Hours</Typography>
@@ -33,12 +33,12 @@ const RestaurantDetails = ({ detail }) => {
             </Grid>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Description</Typography>
-                <Typography>{detail.description}</Typography>
+                <Typography>{detail.restaurant_description}</Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
                 <Typography variant="h6">Booking Appointment</Typography>
                 <Link
-                    href={detail.booking_appointment_link}
+                    href={detail.restaurant_booking_appointment_link}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
