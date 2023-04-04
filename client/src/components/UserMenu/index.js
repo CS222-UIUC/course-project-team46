@@ -6,9 +6,39 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from "react-router-dom";
 
 function UserMenu(props) {
-    const { handleOpenUserMenu, anchorElUser, handleCloseUserMenu, settings } = props;
+    const { handleOpenUserMenu, anchorElUser, handleCloseUserMenu, isAuthenticated } = props;
+
+    const navigate = useNavigate();
+
+    const settings = isAuthenticated
+        ? ['Profile', 'Account', 'Logout']
+        : ['Profile', 'Account', 'Login'];
+
+    const handleLogout = () => {
+        // @todo Add logout logic here
+
+        // Close the menu and redirect to the login page
+        handleCloseUserMenu();
+        navigate("/login");
+    };
+    
+    const handleLogin = () => {
+        // Close the menu and redirect to the login page
+        handleCloseUserMenu();
+        navigate("/login");
+    };
+
+    const handleMenuClick = (setting) => {
+        handleCloseUserMenu();
+        if (setting === "Login") {
+            handleLogin();
+        } else if (setting === "Logout") {
+            handleLogout();
+        }
+    };
 
     return (
         <>
@@ -39,8 +69,7 @@ function UserMenu(props) {
             >
                 {/* The menu items that display each setting */}
                 {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        {/* The name of the setting */}
+                    <MenuItem key={setting} onClick={() => handleMenuClick(setting)}>
                         <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
                 ))}
