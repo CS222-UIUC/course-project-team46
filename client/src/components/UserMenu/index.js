@@ -15,7 +15,7 @@ function UserMenu(props) {
 
     const settings = isAuthenticated
         ? ['Profile', 'Account', 'Logout']
-        : ['Profile', 'Account', 'Login'];
+        : ['Login'];
 
     const handleLogout = () => {
         // @todo Add logout logic here
