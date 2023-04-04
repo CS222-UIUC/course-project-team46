@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 
+import AppBar from '../../components/AppBar'
+
 // create styles
 const AuthWrapper = styled(Grid)`
   height: 100vh;
@@ -72,60 +74,67 @@ function ForgotPage() {
     }
 
     return (
-        <AuthWrapper container>
-            <AuthBackgroundCol item xs={12} md={5} lg={6}>
-                <div className="auth-background-holder"></div>
-                <div className="auth-background-mask"></div>
-            </AuthBackgroundCol>
+        <div className="ForgotPage">
+            <header className="ForgotPage-header">
+                <AppBar />
+                <Box sx={{ mt: 10 }}>
+                    <AuthWrapper container>
+                        <AuthBackgroundCol item xs={12} md={5} lg={6}>
+                            <div className="auth-background-holder"></div>
+                            <div className="auth-background-mask"></div>
+                        </AuthBackgroundCol>
 
-            <Grid item xs={12} md={7} lg={6}>
-                <Container maxWidth="sm" sx={{ height: "100vh", display: "flex", alignItems: "center" }}>
-                    <Box
-                        display="flex"
-                        flexDirection="column"
-                        alignItems="center"
-                        justifyContent="center"
-                        width="100%"
-                    >
-                        <Typography variant="h5" align="center">
-                            Forgot Password
-                        </Typography>
-                        <Box component="form" onSubmit={forgotPassword} sx={{ mt: 3 }}>
-                            <TextField
-                                error={validate.validate && validate.validate.email}
-                                helperText={
-                                validate.validate && validate.validate.email
-                                    ? validate.validate.email[0]
-                                    : ""
-                                }
-                                fullWidth
-                                id="email"
-                                label="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                sx={{ mt: 2 }}
-                            />
-                
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                sx={{ mt: 3 }}
-                            >
-                                Forgot Password
-                            </Button>
-                        </Box>
-            
-                        <Box sx={{ mt: 2 }}>
-                            <Link component={RouterLink} to="/login" variant="body2">
-                                Back to Login
-                            </Link>
-                        </Box>
-                        </Box>
-                </Container>
-            </Grid>
-        </AuthWrapper>
+                        <Grid item xs={12} md={7} lg={6}>
+                            <Container maxWidth="sm" sx={{ height: "100vh", display: "flex", alignItems: "center" }}>
+                                <Box
+                                    display="flex"
+                                    flexDirection="column"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                    width="100%"
+                                >
+                                    <Typography variant="h5" align="center">
+                                        Forgot Password
+                                    </Typography>
+                                    <Box component="form" onSubmit={forgotPassword} sx={{ mt: 3 }}>
+                                        <TextField
+                                            error={validate.validate && validate.validate.email}
+                                            helperText={
+                                            validate.validate && validate.validate.email
+                                                ? validate.validate.email[0]
+                                                : ""
+                                            }
+                                            fullWidth
+                                            id="email"
+                                            label="Email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            sx={{ mt: 2 }}
+                                        />
+                            
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            color="primary"
+                                            sx={{ mt: 3 }}
+                                        >
+                                            Forgot Password
+                                        </Button>
+                                    </Box>
+                        
+                                    <Box sx={{ mt: 2 }}>
+                                        <Link component={RouterLink} to="/login" variant="body2">
+                                            Back to Login
+                                        </Link>
+                                    </Box>
+                                    </Box>
+                            </Container>
+                        </Grid>
+                    </AuthWrapper>
+                </Box>
+            </header>
+        </div>
     );
 }
 
