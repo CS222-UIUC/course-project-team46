@@ -10,11 +10,12 @@ import NavMenu from '../NavMenu';
 import UserMenu from '../UserMenu';
 
 const pages = ['Page 1', 'Page 2', 'Page 3'];
-const settings = ['Profile', 'Account', 'Logout'];
 
 function ResponsiveAppBar(props) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const isAuthenticated = false;
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -58,7 +59,7 @@ function ResponsiveAppBar(props) {
                             handleOpenUserMenu={handleOpenUserMenu}
                             anchorElUser={anchorElUser}
                             handleCloseUserMenu={handleCloseUserMenu}
-                            settings={settings}
+                            isAuthenticated={isAuthenticated}
                         />
                     </Box>
                 </Toolbar>
