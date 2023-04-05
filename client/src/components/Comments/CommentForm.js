@@ -2,7 +2,11 @@ import React from "react";
 import { Box, TextField, Button } from "@mui/material";
 
 function CommentForm(props) {
-    const { currentComment, setCurrentComment, handleSubmit } = props;
+    const { user, currentComment, setCurrentComment, handleSubmit } = props;
+
+    if (!user) {
+        return <p>Please login first before leave a comment.</p>
+    }
     
     return (
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
