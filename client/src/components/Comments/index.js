@@ -11,7 +11,7 @@ import CommentList from "./CommentList";
  *      2. component to display commitList
  */
 function Comments(props) {
-    const { commitList } = props;
+    const { user, commitList } = props;
 
     const [currentComment, setCurrentComment] = useState("");
 
@@ -25,6 +25,7 @@ function Comments(props) {
             <Typography variant="h6">Comments</Typography>
 
             <CommentForm
+                user={user}
                 currentComment={currentComment}
                 setCurrentComment={setCurrentComment}
                 handleSubmit={handleSubmit}
