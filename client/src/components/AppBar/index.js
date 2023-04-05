@@ -49,9 +49,7 @@ function ResponsiveAppBar(props) {
                     />
 
                     <Box sx={{ flexGrow: 0 }}> 
-                        <SearchBar 
-                            handleSearch={props.handleSearch}
-                        />
+                        <SearchBar />
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
