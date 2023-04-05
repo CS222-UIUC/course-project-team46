@@ -28,6 +28,14 @@ const AuthBackgroundCol = styled(Grid)`
     }
 `;
 
+const AuthBackgroundHolder = styled(Box)`
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/LoginImage/LoginImage_3-3264x4928.jpg');
+    background-size: cover;
+    background-position: center;
+`;
+
 function RegisterPage() {
 
     const [name, setName] = useState('');
@@ -94,7 +102,7 @@ function RegisterPage() {
                 <Box sx={{ mt: 10 }}>
                     <AuthWrapper container>
                         <AuthBackgroundCol item xs={12} md={5} lg={6}>
-                            <div className="auth-background-holder"></div>
+                            <AuthBackgroundHolder className="auth-background-holder" />
                             <div className="auth-background-mask"></div>
                         </AuthBackgroundCol>
 
