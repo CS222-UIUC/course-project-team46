@@ -4,10 +4,19 @@
 
 import { Search, SearchIconWrapper, StyledInputBase } from './style';
 
+import { useNavigate } from "react-router-dom";
+
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar(props) {
+
+    const navigate = useNavigate();
+
+    const handleSearch = (qwerty) => {
+        navigate(`/search?q=${qwerty}`);
+    }
+
     return (
         <Search>
             <SearchIconWrapper>
@@ -18,7 +27,7 @@ function SearchBar(props) {
                 inputProps={{ 'aria-label': 'search' }}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') {
-                        props.handleSearch(e.target.value);
+                        handleSearch(e.target.value);
                     }
                 }}
             />
