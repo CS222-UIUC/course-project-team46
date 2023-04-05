@@ -41,7 +41,8 @@ const AuthBody = styled(Box)`
     margin: auto;
 `;
 
-function LoginPage() {
+function LoginPage(props) {
+    const { handleLogin } = props;
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -50,8 +51,6 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
 
     const validateLogin = () => {
-        let isValid = true;
-
         let validator = Form.validator({
             email: {
                 value: email,
@@ -70,9 +69,22 @@ function LoginPage() {
                 validate: validator.errors
             })
 
-            isValid = false
+            return null; // Returns null if validation fails
         }
-        return isValid;
+        // Return user data in case of successful authentication
+        return {
+            email,
+            password,
+        };
+    }
+
+    const userLogin = (userData, remember) => {
+        // @todo send it to backend to check ...
+        // if (valid) -> login
+        handleLogin(userData, remember)
+        
+        // else
+        // alert("wrong");
     }
 
     const authenticate = (e) => {
@@ -84,7 +96,8 @@ function LoginPage() {
             setValidate({});
             setEmail('');
             setPassword('');
-            alert('Successfully Login');
+
+            userLogin(validate, remember)
         }
     }
 

@@ -13,6 +13,8 @@ import RestaurantDetailPageHead from './RestaurantDetailPageHead';
 import RestaurantDetailPageTabs from './RestaurantDetailPageTabs';
 
 function RestaurantDetailPage(props) {
+    const { user, handleLogout } = props;
+
     const { id } = useParams();
     const [restaurant, setRestaurant] = useState(null);
 
@@ -85,7 +87,10 @@ function RestaurantDetailPage(props) {
 
     return (
         <div>
-            <AppBar />
+            <AppBar 
+                user={user}
+                handleLogout={handleLogout}
+            />
             <Box sx={{ mt: 10 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={1} />

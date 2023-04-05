@@ -9,32 +9,19 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 
 function UserMenu(props) {
-    const { handleOpenUserMenu, anchorElUser, handleCloseUserMenu, isAuthenticated } = props;
+    const { handleOpenUserMenu, anchorElUser, handleCloseUserMenu, user, handleLogout } = props;
 
     const navigate = useNavigate();
 
-    const settings = isAuthenticated
+    const settings = user
         ? ['Profile', 'Account', 'Logout']
         : ['Login'];
 
-    const handleLogout = () => {
-        // @todo Add logout logic here
-
-        // Close the menu and redirect to the login page
-        handleCloseUserMenu();
-        navigate("/login");
-    };
-    
-    const handleLogin = () => {
-        // Close the menu and redirect to the login page
-        handleCloseUserMenu();
-        navigate("/login");
-    };
-
     const handleMenuClick = (setting) => {
+        // Close the menu before when to another pages
         handleCloseUserMenu();
         if (setting === "Login") {
-            handleLogin();
+            navigate("/login");
         } else if (setting === "Logout") {
             handleLogout();
         }

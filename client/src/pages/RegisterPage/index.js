@@ -36,7 +36,8 @@ const AuthBackgroundHolder = styled(Box)`
     background-position: center;
 `;
 
-function RegisterPage() {
+function RegisterPage(props) {
+    const { handleLogin } = props;
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -45,8 +46,6 @@ function RegisterPage() {
     const [showPassword, setShowPassword] = useState(false);
 
     const validateRegister = () => {
-        let isValid = true;
-
         let validator = Form.validator({
             name: {
                 value: name,
@@ -69,9 +68,24 @@ function RegisterPage() {
                 validate: validator.errors
             })
 
-            isValid = false
+            return null; // Returns null if validation fails
         }
-        return isValid;
+        
+        // Return user data in case of successful authentication
+        return {
+            name,
+            email,
+            password,
+        };
+    }
+
+    const userRegister = (userData) => {
+        // @todo send it to backend to check ...
+        // if (valid) -> login
+        handleLogin(userData, false)
+
+        // else
+        // alert("wrong");
     }
 
     const register = (e) => {
@@ -84,7 +98,8 @@ function RegisterPage() {
             setName('');
             setEmail('');
             setPassword('');
-            alert('Successfully Register User');
+
+            userRegister(validate)
         }
     }
 
