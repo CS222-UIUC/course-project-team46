@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import AppBar from '../../components/AppBar'
-import Commits from '../../components/Commits'
+import Comments from '../../components/Comments'
 
 import { Box, Grid } from '@mui/material';
 
@@ -92,7 +92,7 @@ function RestaurantDetailPage(props) {
                     <Grid item xs={10}>
                         <RestaurantDetailPageHead detail={restaurant} />
                         <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
-                        <Commits commitList={commits} />
+                        <Comments commitList={commits} />
                     </Grid>
                     <Grid item xs={1} />
                 </Grid>
