@@ -17,6 +17,8 @@ function RestaurantDetailPage(props) {
 
     const { id } = useParams();
     const [restaurant, setRestaurant] = useState(null);
+    const [commits, setCommits] = useState([]);
+    const [menu, setMenu] = useState([]);
 
     // fetch restaurant detail data
     useEffect(() => {
@@ -31,6 +33,60 @@ function RestaurantDetailPage(props) {
             fetchRestaurant();
         }
     }, [id, restaurant]);
+
+    useEffect(() => {
+        setCommits([
+            {
+                "commits_id": 1,
+                "user_id": 123,
+                "username": "Peter",
+                "createdAt": "2 days ago",
+                "user_rate": 4,
+                "score": 12,
+                "user_avatar": "/static/images/avatar/Default.jpeg",
+                "detail": "this is a commit"
+            },
+            {
+                "commits_id": 2,
+                "user_id": 123,
+                "username": "Peter",
+                "createdAt": "2 weeks ago",
+                "user_rate": 3,
+                "score": 2,
+                "user_avatar": "/static/images/avatar/Default.jpeg",
+                "detail": "this is another commit"
+            },
+            {
+                "commits_id": 3,
+                "user_id": 123,
+                "username": "Peter",
+                "createdAt": "1 month ago",
+                "user_rate": 5,
+                "score": 7,
+                "user_avatar": "/static/images/avatar/Default.jpeg",
+                "detail": "Hello"
+            }
+        ]);
+        setMenu([
+            {
+                "dish_id": 1,
+                "dish_name": "Bruschette with Tomato",
+                "dish_price": 26.89,
+                "recommand_numebr": 4.7
+            },
+            {
+                "dish_id": 2,
+                "dish_name": "Salmon nigiri",
+                "dish_price": 26.72,
+                "recommand_numebr": 3.9
+            },
+            {
+                "dish_id": 3,
+                "dish_name": "Pasta Carbonara",
+                "dish_price": 37.57,
+                "recommand_numebr": 2.4
+            }]);
+    }, []);
 
     /*
     function handleGoBack() {
@@ -47,43 +103,6 @@ function RestaurantDetailPage(props) {
       return <div>Sorry, this restaurant does not exist.</div>;
     }
     */
-    const menu=[
-        {
-            "dish_id": 1,
-            "dish_name": "Bruschette with Tomato",
-            "dish_price": 26.89,
-            "recommand_numebr": 4.7
-        },
-        {
-            "dish_id": 2,
-            "dish_name": "Salmon nigiri",
-            "dish_price": 26.72,
-            "recommand_numebr": 3.9
-        },
-        {
-            "dish_id": 3,
-            "dish_name": "Pasta Carbonara",
-            "dish_price": 37.57,
-            "recommand_numebr": 2.4
-        }]
-
-    const commits=[
-        {
-            "commits_id": 1,
-            "user_id": 123,
-            "detail": "this is a commit"
-        },
-        {
-            "commits_id": 2,
-            "user_id": 123,
-            "detail": "this is another commit"
-        },
-        {
-            "commits_id": 3,
-            "user_id": 123,
-            "detail": "Hello"
-        }
-    ]
 
     return (
         <div>

@@ -1,6 +1,9 @@
-import { React } from 'react';
+import { useState } from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
+import CommentForm from "./CommentForm";
+import CommentList from "./CommentList";
 
 /**
  * @todo 
@@ -10,25 +13,23 @@ import { Box } from '@mui/material';
 function Comments(props) {
     const { commitList } = props;
 
-    // 
+    const [currentComment, setCurrentComment] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Logic for submitting the new comment
+    };
+
     return (
-        <Box
-            sx={{
-                paddingBottom: 2,
-                textAlign: 'left'
-            }}
-        >
-            <h3>Commits</h3>
-            {commitList
-                .map((item) => {
-                    return (
-                        <span key={item.commits_id}>
-                            <br />
-                            {item.commits_id} | {item.user_id} | {item.detail}
-                            <br />
-                        </span>
-                    )
-                })}
+        <Box sx={{ mt: 4, paddingBottom: 2, textAlign: 'left' }}>
+            <Typography variant="h6">Comments</Typography>
+
+            <CommentForm
+                currentComment={currentComment}
+                setCurrentComment={setCurrentComment}
+                handleSubmit={handleSubmit}
+            />
+            <CommentList commitList={commitList} />
         </Box>
     );
 }
