@@ -9,6 +9,8 @@ import AppBar from '../../components/AppBar'
 import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 
 function HomePage(props) {
+    const { user, handleLogout } = props;
+
     const [order, setOrder] = useState('desc');
     const [orderBy, setOrderBy] = useState('rate');
 
@@ -51,7 +53,10 @@ function HomePage(props) {
     return (
         <div className="HomePage">
             <header className="HomePage-header">
-                <AppBar />
+                <AppBar 
+                    user={user}
+                    handleLogout={handleLogout}
+                />
                 <Box sx={{ mt: 10 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={0.5} />

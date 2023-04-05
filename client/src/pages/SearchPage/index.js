@@ -10,14 +10,15 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
-const SearchPage = () => {
+function SearchPage(props) {
+    const { user, handleLogout } = props;
+
     const query = useQuery().get('q');
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('name');
     const [page, setPage] = useState(1);
-    //const [restaurantData, setRestaurantData] = useState([]);
+    const [restaurantData, setRestaurantData] = useState([]);
 
-    /*
     useEffect(() => {
             const fetchData = async () => {
             const response = await axios.get(`/api/restaurant/search?q=${query}&page=${page}&sortField=${orderBy}&sortOrder=${order}`);
@@ -26,8 +27,8 @@ const SearchPage = () => {
 
         fetchData();
     }, [query, order, orderBy, page]);
-     */
-    const restaurantData = [
+
+    setRestaurantData([
         {
           "restaurant_id": 1,
           "restaurant_name": "Johnson-King",
@@ -97,7 +98,7 @@ const SearchPage = () => {
           "restaurant_address": "606 Destiny Forks\nPort Rachel, NM 62459",
           "restaurant_rating": 1.8,
           "restaurant_type": "Thai food"
-        }]
+        }])
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -106,7 +107,10 @@ const SearchPage = () => {
     };
     return (
         <Box>
-            <AppBar />
+            <AppBar 
+                user={user}
+                handleLogout={handleLogout}
+            />
             <Box sx={{ mt: 10 }}>
                 query = {query} | 
                 order = {order} | 
