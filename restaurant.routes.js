@@ -11,8 +11,12 @@ module.exports = app => {
     router.get("/", rest.DisplayRest);
 
     // main page, using for sorting restaurants
-    // using SortBy (name | type | price )
-    // multi SortBy is permitted
+    // using SortByName, SortByPrice to change the sort order.
+    //  SortByName, SortByPrice cannot occur at the same time (if ouccur, the program would return status 500)
+
+    // using FoodType_1, FoodType_2.... to control the food fliter.
+    // for example FoodType_1 == fastfood , return all food with fast food type 
+    // upto 9 different food type
     // using SortOrder to change (ASC | DESC)
     router.get("/sort", rest.FindBy);
 
