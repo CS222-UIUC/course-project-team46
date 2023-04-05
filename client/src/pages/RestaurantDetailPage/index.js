@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import AppBar from '../../components/AppBar'
 import Comments from '../../components/Comments'
 
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Paper, Typography, Divider, Button, Container} from '@mui/material';
 
 import RestaurantDetailPageHead from './RestaurantDetailPageHead';
 import RestaurantDetailPageTabs from './RestaurantDetailPageTabs';
@@ -124,5 +124,154 @@ function RestaurantDetailPage(props) {
         </div>
     );
 }
+
+
+
+
+return (
+    <div>
+      <AppBar user={user} handleLogout={handleLogout} />
+      <Box sx={{ mt: 10 }}>
+        <Container>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <RestaurantDetailPageHead detail={restaurant} />
+            </Grid>
+            <Grid item xs={12}>
+              <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+            </Grid>
+            <Grid item xs={12}>
+              <Comments commitList={commits} />
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </div>
+  );
+
+  //
+  return (
+    <div>
+      <AppBar 
+        user={user}
+        handleLogout={handleLogout}
+      />
+      <Box sx={{ mt: 10 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={8}>
+              <Box sx={{ mb: 3 }}>
+                <RestaurantDetailPageHead detail={restaurant} />
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <Comments commitList={commits} />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ mb: 3 }}>
+                <RestaurantDetailPageInfo detail={restaurant} />
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <RestaurantDetailPageMap detail={restaurant} />
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </div>
+  );
+  
+
+
+  return (
+    <div>
+      <AppBar user={user} handleLogout={handleLogout} />
+      <Box sx={{ mt: 10 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4} lg={3}>
+            <Box sx={{ mb: 4 }}>
+              <RestaurantDetailPageHead detail={restaurant} />
+            </Box>
+            <Box sx={{ mb: 4 }}>
+              <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={8} lg={9}>
+            <Box sx={{ mb: 4 }}>
+              <Comments commitList={commits} />
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+    </div>
+  );
+  
+
+
+
+
+
+
+
+  // add paper component from mui
+return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar user={user} handleLogout={handleLogout} />
+      <Box sx={{ p: 3 }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper>
+              <RestaurantDetailPageHead detail={restaurant} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper>
+              <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper>
+              <Comments commitList={commits} />
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  );
+
+//
+
+  return (
+    <div>
+      <AppBar user={user} handleLogout={handleLogout} />
+      <Container maxWidth="lg">
+        <Box sx={{ mt: 3 }}>
+          <Paper sx={{ p: 3 }}>
+            <RestaurantDetailPageHead detail={restaurant} />
+          </Paper>
+        </Box>
+        <Box sx={{ mt: 3 }}>
+          <Paper sx={{ p: 3 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={8}>
+                <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Paper sx={{ p: 3 }}>
+                  <Comments commitList={commits} />
+                </Paper>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Box>
+      </Container>
+    </div>
+  );
+
+  
+
 
 export default RestaurantDetailPage;
