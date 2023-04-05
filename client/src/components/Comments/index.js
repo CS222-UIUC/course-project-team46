@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
  *      1. component for user to put in commit and submit
  *      2. component to display commitList
  */
-function Commits(props) {
+function Comments(props) {
     const { commitList } = props;
 
     // 
@@ -33,4 +33,4 @@ function Commits(props) {
     );
 }
 
-export default Commits;
+export default Comments;
