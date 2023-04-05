@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import AppBar from '../../components/AppBar'
 import Comments from '../../components/Comments'
 
-import { Box, Grid, Paper, Typography, Divider, Button, Container} from '@mui/material';
+import { Box, Grid, Paper} from '@mui/material';
 
 import RestaurantDetailPageHead from './RestaurantDetailPageHead';
 import RestaurantDetailPageTabs from './RestaurantDetailPageTabs';
@@ -104,6 +104,7 @@ function RestaurantDetailPage(props) {
     }
     */
 
+
     return (
         <div>
             <AppBar 
@@ -113,11 +114,20 @@ function RestaurantDetailPage(props) {
             <Box sx={{ mt: 10 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={1} />
+
                     <Grid item xs={10}>
-                        <RestaurantDetailPageHead detail={restaurant} />
-                        <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
-                        <Comments commitList={commits} />
+                        <Box sx={{ mt: 3 }}>
+                            <Paper sx={{ p: 3 }}>
+                                <RestaurantDetailPageHead detail={restaurant} />
+                            </Paper>
+                        </Box>
+
+                        <Paper sx={{ p: 3 }}>
+                            <RestaurantDetailPageTabs detail={restaurant} menu={menu} />
+                            <Comments commitList={commits} />
+                        </Paper>
                     </Grid>
+
                     <Grid item xs={1} />
                 </Grid>
             </Box>
@@ -127,7 +137,7 @@ function RestaurantDetailPage(props) {
 
 
 
-
+/*
 return (
     <div>
       <AppBar user={user} handleLogout={handleLogout} />
@@ -270,7 +280,7 @@ return (
       </Container>
     </div>
   );
-
+*/
   
 
 

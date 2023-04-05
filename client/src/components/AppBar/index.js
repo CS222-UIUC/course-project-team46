@@ -9,7 +9,7 @@ import Logo from '../Logo';
 import NavMenu from '../NavMenu';
 import UserMenu from '../UserMenu';
 
-const pages = ['Page 1', 'Page 2', 'Page 3'];
+const pages = [''];
 
 function ResponsiveAppBar(props) {
     const { user, handleLogout } = props;
