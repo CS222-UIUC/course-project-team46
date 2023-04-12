@@ -13,6 +13,7 @@ import {
 import { styled } from "@mui/system";
 
 import AppBar from '../../components/AppBar'
+import Footer from '../../components/Footer'
 
 // create styles
 const AuthWrapper = styled(Grid)`
@@ -141,6 +142,7 @@ function ForgotPage() {
                         </Grid>
                     </AuthWrapper>
                 </Box>
+                <Footer />
             </header>
         </div>
     );

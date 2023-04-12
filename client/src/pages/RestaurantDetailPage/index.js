@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import AppBar from '../../components/AppBar'
 import Comments from '../../components/Comments'
+import Footer from '../../components/Footer'
 
 import { Box, Grid, Paper} from '@mui/material';
 
@@ -134,6 +135,7 @@ function RestaurantDetailPage(props) {
                     <Grid item xs={1} />
                 </Grid>
             </Box>
+            <Footer />
         </div>
     );
 }

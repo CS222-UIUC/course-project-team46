@@ -5,6 +5,7 @@ import { Box, Grid } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
 import AppBar from '../../components/AppBar'
+import Footer from '../../components/Footer'
 import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 
 const useQuery = () => {
@@ -148,6 +149,7 @@ function SearchPage(props) {
                         <Grid item xs={0.5} />
                     </Grid>
                 </Box>
+                <Footer />
             </header>
         </div>
     );

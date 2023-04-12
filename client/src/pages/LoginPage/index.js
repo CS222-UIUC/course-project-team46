@@ -6,6 +6,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { styled } from "@mui/system";
 
 import AppBar from '../../components/AppBar'
+import Footer from '../../components/Footer'
 
 // create styles
 const AuthWrapper = styled(Grid)`
@@ -183,6 +184,7 @@ function LoginPage(props) {
                         </Grid>
                     </AuthWrapper>
                 </Box>
+                <Footer />
             </header>
         </div>
     );

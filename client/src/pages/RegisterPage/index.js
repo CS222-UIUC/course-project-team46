@@ -6,6 +6,7 @@ import { styled } from "@mui/system";
 import Form from '../../utils/Forms'
 
 import AppBar from '../../components/AppBar'
+import Footer from '../../components/Footer'
 
 // create styles
 const AuthWrapper = styled(Grid)`
@@ -210,6 +211,7 @@ function RegisterPage(props) {
                         </Grid>
                     </AuthWrapper>
                 </Box>
+                <Footer />
             </header>
         </div>
     );
