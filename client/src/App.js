@@ -10,6 +10,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ForgotPage from "./pages/ForgotPage";
+import TestPage from "./pages/TestPage";
 
 // Examples
 
@@ -62,6 +63,7 @@ function App() {
                 <Route exact path='/login' element={<LoginPage handleLogin={handleLogin} />} />
                 <Route exact path='/register' element={<RegisterPage handleLogin={handleLogin} />} />
                 <Route exact path='/forgot-password' element={<ForgotPage />} />
+                <Route exact path='/test' element={<TestPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
