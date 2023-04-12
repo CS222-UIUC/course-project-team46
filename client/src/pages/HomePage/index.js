@@ -8,6 +8,7 @@ import { Box, Grid } from '@mui/material';
 import AppBar from '../../components/AppBar'
 import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 import RestaurantReferral from '../../components/RestaurantReferral'
+import Footer from '../../components/Footer'
 
 const restaurantIDs = [17972286928074856000, 6439431995832154000, 14858487583252476000, 14082953212814273000, 6249083880162181000]
 
@@ -102,6 +103,7 @@ function HomePage(props) {
                         <Grid item xs={0.5} />
                     </Grid>
                 </Box>
+                <Footer />
             </header>
         </div>
     );
