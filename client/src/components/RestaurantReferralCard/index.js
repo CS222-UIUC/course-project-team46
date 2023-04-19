@@ -7,16 +7,22 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useNavigate } from "react-router-dom";
 
 function RestaurantReferralCard(props) {
     const { restaurantData } = props;
+    const navigate = useNavigate();
 
     if (!restaurantData) {
         return <div>Loading...</div>;
     }
+    
+    const handleCardClick = () => {
+        navigate(`/restaurant/${restaurantData.restaurant_id}`);
+    };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} onClick={handleCardClick} >
             <CardHeader
                 avatar={
                     <Avatar 
