@@ -10,6 +10,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ForgotPage from "./pages/ForgotPage";
+//import AboutUsPage from "./pages/AboutUsPage";
 import TestPage from "./pages/TestPage";
 
 // Examples
