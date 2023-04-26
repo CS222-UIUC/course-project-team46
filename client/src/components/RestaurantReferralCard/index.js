@@ -3,6 +3,8 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -14,7 +16,17 @@ function RestaurantReferralCard(props) {
     const navigate = useNavigate();
 
     if (!restaurantData) {
-        return <div>Loading...</div>;
+        return (
+            <Card sx={{ maxWidth: 345 }}>
+                <Box display="flex" alignItems="center" gap={1} mb={1} >
+                    <Skeleton variant="circular" width={45} height={45} />
+                    <Skeleton variant="rounded" width={100} height={30} />
+                </Box>
+                <Skeleton variant="rounded" height={194} />
+                <Skeleton variant="rounded" height={68} />
+                <Skeleton variant="rounded" height={48} />
+            </Card>
+        );
     }
     
     const handleCardClick = () => {
