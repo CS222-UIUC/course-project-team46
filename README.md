@@ -8,7 +8,6 @@ lszz
 
 * Peter Zhu (bowenz12)
 *  (xingz6)
-*  (tianyi15)
 *  (boyangs3)
 
 ## Project Introduction
@@ -22,6 +21,11 @@ YumRev is a full-stack web application consisting of a front-end client built us
 ## Running Instructions
 
 To set up and run the YumRev application, follow the instructions provided in the respective README files for the front-end client and back-end server.
+
+Then:
+
+1. open the website.
+2. register as a user and begin to searching, rating and commenting on the website.
 
 ### Front-end Client
 
