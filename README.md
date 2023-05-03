@@ -1,4 +1,4 @@
-# course-project-team46
+# YumRev
 
 ## Group Name
 
@@ -17,29 +17,22 @@ It’s always difficult to choose restaurants for meals if there is no recommend
 
 ## System Overview
 
-@TODO
+YumRev is a full-stack web application consisting of a front-end client built using React and Material-UI and a back-end server responsible for handling data and user authentication. The application allows users to browse a list of restaurants, view details of each restaurant, rate and comment on their experiences, and get personalized recommendations based on user preferences and ratings.
 
-## Running Instruction
+## Running Instructions
 
-### Clone the code
+To set up and run the YumRev application, follow the instructions provided in the respective README files for the front-end client and back-end server.
 
-To setup this project, clone the repository locally using the command, then cd into the newly made directory
+### Front-end Client
 
-```bash
-git clone https://github.com/CS222-UIUC/course-project-team46.git
+Refer to the README.md file in the `client` directory for instructions on setting up and running the front-end client application. You can find it [here](./client/README.md).
 
-cd course-project-team46
-```
+### Back-end Server
 
-### to build code, you need to run
+Refer to the README.md file in the `server` directory for instructions on setting up and running the back-end server application. You can find it [here](./server/README.md).
 
-```bash
-@TODO
-```
-
-in the terminal.
-
+For a seamless experience, it is recommended to run both the front-end client and back-end server concurrently.
 
 ## Referance
 
-[CS 225 Final Project](https://courses.engr.illinois.edu/cs225/fa2022/pages/final_project.html)
+[CS 222 Project](https://courses.grainger.illinois.edu/CS222/sp2023/)
