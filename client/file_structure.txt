@@ -1,0 +1,167 @@
+卷 Files 的文件夹 PATH 列表
+卷序列号为 DA29-2639
+D:\FILES\SCHOOL_FILES\UIUC_2023_SPRING\CS_222\COURSE-PROJECT-TEAM46\CLIENT
+|   .env
+|   .gitignore
+|   file_structure.txt
+|   package-lock.json
+|   package.json
+|   print_structure.bat
+|   README.md
+|   
++---build
+|   |   asset-manifest.json
+|   |   favicon.ico
+|   |   index.html
+|   |   logo192.png
+|   |   logo512.png
+|   |   manifest.json
+|   |   robots.txt
+|   |   
+|   \---static
+|       +---css
+|       |       main.29cf2265.css
+|       |       main.29cf2265.css.map
+|       |       
+|       \---js
+|               main.162c180a.js
+|               main.162c180a.js.LICENSE.txt
+|               main.162c180a.js.map
+|               
++---public
+|   |   favicon.ico
+|   |   index.html
+|   |   logo192.png
+|   |   logo512.png
+|   |   manifest.json
+|   |   robots.txt
+|   |   
+|   \---static
+|       +---images
+|       |   +---avatar
+|       |   |       Default-2.jpeg
+|       |   |       Default.jpeg
+|       |   |       
+|       |   \---LoginImage
+|       |           LoginImage_1-3201x5101.jpg
+|       |           LoginImage_2-4608x2592.jpg
+|       |           LoginImage_3-3264x4928.jpg
+|       |           
+|       \---logo
+|               logo-100.svg
+|               logo-500.svg
+|               
+\---src
+    |   App.css
+    |   App.js
+    |   App.test.js
+    |   index.css
+    |   index.js
+    |   
+    +---components
+    |   +---AppBar
+    |   |       index.js
+    |   |       
+    |   +---Comments
+    |   |       CommentForm.js
+    |   |       CommentList.js
+    |   |       index.js
+    |   |       SingleComment.js
+    |   |       
+    |   +---Filter
+    |   |       index.js
+    |   |       
+    |   +---Footer
+    |   |       index.js
+    |   |       
+    |   +---LikeDislikeActions
+    |   |       index.js
+    |   |       
+    |   +---Logo
+    |   |       index.js
+    |   |       
+    |   +---MenuTable
+    |   |       index.js
+    |   |       
+    |   +---NavMenu
+    |   |       index.js
+    |   |       
+    |   +---RestaurantDetails
+    |   |       index.js
+    |   |       
+    |   +---RestaurantList
+    |   |       index.js
+    |   |       RenderRow.js
+    |   |       RestaurantListHeader.js
+    |   |       
+    |   +---RestaurantListWithFilter
+    |   |       index.js
+    |   |       
+    |   +---RestaurantReferral
+    |   |       index.js
+    |   |       
+    |   +---RestaurantReferralCard
+    |   |       index.js
+    |   |       
+    |   +---SearchBar
+    |   |       index.js
+    |   |       style.js
+    |   |       
+    |   +---StarRating
+    |   |       index.js
+    |   |       
+    |   \---UserMenu
+    |           index.js
+    |           
+    +---data
+    |       main.py
+    |       restaurants.json
+    |       restaurant_data.json
+    |       
+    +---pages
+    |   +---AboutUsPage
+    |   |       indes.js
+    |   |       
+    |   +---ForgotPage
+    |   |       index.js
+    |   |       
+    |   +---HomePage
+    |   |       Homepage.css
+    |   |       index.js
+    |   |       
+    |   +---LoginPage
+    |   |       index.js
+    |   |       
+    |   +---NotFoundPage
+    |   |       index.js
+    |   |       
+    |   +---RegisterPage
+    |   |       index.js
+    |   |       
+    |   +---RestaurantDetailPage
+    |   |       index.js
+    |   |       RestaurantDetailPage.css
+    |   |       RestaurantDetailPageHead.js
+    |   |       RestaurantDetailPageTabs.js
+    |   |       
+    |   +---RestaurantPage
+    |   |   |   index.js
+    |   |   |   
+    |   |   \---RestaurantDetailComponents
+    |   |           AddComment.js
+    |   |           CommentList.js
+    |   |           RatingComponent.js
+    |   |           RestaurantIntroduction.js
+    |   |           
+    |   +---SearchPage
+    |   |       index.js
+    |   |       
+    |   \---TestPage
+    |           index.js
+    |           
+    +---style
+    |       style.js
+    |       
+    \---utils
+            Forms.js
+            
