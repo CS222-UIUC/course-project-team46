@@ -37,7 +37,7 @@ Refer to the README.md file in the `server` directory for instructions on settin
 
 For a seamless experience, it is recommended to run both the front-end client and back-end server concurrently.
 
-## Referance
+## Reference
 
 [CS 222 Project](https://courses.grainger.illinois.edu/CS222/sp2023/)
 
