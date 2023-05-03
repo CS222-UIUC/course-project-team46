@@ -35,7 +35,7 @@ cd course-project-team46
 ### to build code, you need to run
 
 ```bash
-@TODO
+
 ```
 
 in the terminal.
