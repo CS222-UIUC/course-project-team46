@@ -8,7 +8,6 @@ lszz
 
 * Peter Zhu (bowenz12)
 *  (xingz6)
-*  (tianyi15)
 *  (boyangs3)
 
 ## Project Introduction
@@ -21,7 +20,9 @@ It’s always difficult to choose restaurants for meals if there is no recommend
 
 ## Running Instruction
 
-### Clone the code
+
+1. open the website.
+2. register as a user and begin to searching, rating and commenting on the website.
 
 To setup this project, clone the repository locally using the command, then cd into the newly made directory
 
