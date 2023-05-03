@@ -6,17 +6,21 @@ lszz
 
 ## Group member names and NetIDs
 
-* Peter Zhu (bowenz12)
-*  (xingz6)
-*  (boyangs3)
+* Peter Zhu(bowenz12): front-end
+* Xing Zhao(xingz6): front-end
+* Boyang Sun(boyangs3): back-end
 
 ## Project Introduction
 
 It’s always difficult to choose restaurants for meals if there is no recommendation. Restaurant Evaluation collects dishes, users’ ratings, comments in text format towards multiple restaurants and then saves them, providing suggestions before you make the decision.
 
 ## System Overview
+Our project has a React, JavaScript as frontend, Express, MySQL as the backend.
 
-YumRev is a full-stack web application consisting of a front-end client built using React and Material-UI and a back-end server responsible for handling data and user authentication. The application allows users to browse a list of restaurants, view details of each restaurant, rate and comment on their experiences, and get personalized recommendations based on user preferences and ratings.
+
+YumRev is a full-stack web application consisting of a front-end client built using React and Material-UI and a back-end server responsible for handling data and user authentication. we used the MUI component library to make our each component concise and save us much work. 
+
+The SQLite database has tables for data managenment in order for users to browse a list of restaurants, view details of each restaurant, rate and comment on their experiences, and get personalized recommendations based on user preferences and ratings.
 
 ## Running Instructions
 
@@ -26,6 +30,10 @@ Then:
 
 1. open the website.
 2. register as a user and begin to searching, rating and commenting on the website.
+
+
+### images:
+![image](pictures/cs222_final_pres.drawio.png)
 
 ### Front-end Client
 
