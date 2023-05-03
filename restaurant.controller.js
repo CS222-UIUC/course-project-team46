@@ -1,16 +1,7 @@
 const sql = require("../module/db.js");
 
-var total_page;
 
-sql.query(`SELECT COUNT(*) AS pages
-                FROM restaurant.restaurant_list as rest`,
-                (err, result) => {
-                    
-                     total_page = result;
-                }
-                );
-                console.log("-------------------");
-
+                
 
 exports.FindByName= (req,res) => {
     if (!req.body) {
@@ -47,7 +38,16 @@ exports.DisplayRest = (req,res) => {
           message: "Page can not be empty!"
         });
     }
-    
+    var total_page;
+
+    sql.query(`SELECT COUNT(*) AS pages
+                FROM restaurant.restaurant_list as rest`,
+                (err, result) => {
+                    
+                     total_page = result;
+                }
+                );
+                
     sql.query(`SELECT *
              From restaurant.restaurant_list as rest 
              ORDER BY rest.restaurant_name
@@ -78,15 +78,27 @@ exports.FindBy= (req,res) => {
       }
       console.log(req.body);
 
+    var total_page;
 
-      if(req.query.SortByPrice == 1) {
-        sql.query(`SELECT rest.restaurant_name, A.avg_price,rest.restaurant_type 
+    sql.query(`SELECT COUNT(*) AS pages
+                FROM restaurant.restaurant_list as rest
+                WHERE rest.restaurant_type = "${req.query.FoodType_1}" or rest.restaurant_type = "${req.query.FoodType_2}" or rest.restaurant_type = "${req.query.FoodType_3}" 
+                or rest.restaurant_type = "${req.query.FoodType_4}" or rest.restaurant_type = "${req.query.FoodType_5}" or rest.restaurant_type = "${req.query.FoodType_6}" 
+                or rest.restaurant_type = "${req.query.FoodType_7}" or rest.restaurant_type = "${req.query.FoodType_8}" or rest.restaurant_type = "${req.query.FoodType_9}";`,
+                (err, result) => {
+                    
+                     total_page = result;
+                }
+                );
+                console.log("page",total_page);
+      if(req.query.SortType == "Price") {
+        sql.query(`SELECT * 
         FROM (SELECT   lis.restaurant_id, avg(lis.dish_price) as avg_price FROM restaurant.restaurant_dishes_list as lis   
         Group by lis.restaurant_id  )as A NATURAL JOIN restaurant.restaurant_list as rest 
-        WHERE rest.restaurant_type = ${req.query.FoodType_1} or rest.restaurant_type = ${req.query.FoodType_2} rest.restaurant_type = ${req.query.FoodType_3} 
-            or rest.restaurant_type = ${req.query.FoodType_4} or rest.restaurant_type = ${req.query.FoodType_5} or rest.restaurant_type = ${req.query.FoodType_6} 
-            or rest.restaurant_type = ${req.query.FoodType_7} or rest.restaurant_type = ${req.query.FoodType_8} or rest.restaurant_type = ${req.query.FoodType_9} 
-        ORDER BY A.avg_price ${req.query.sortOrder};`,
+        WHERE rest.restaurant_type = "${req.query.FoodType_1}" or rest.restaurant_type = "${req.query.FoodType_2}" or rest.restaurant_type = "${req.query.FoodType_3}" 
+        or rest.restaurant_type = "${req.query.FoodType_4}" or rest.restaurant_type = "${req.query.FoodType_5}" or rest.restaurant_type = "${req.query.FoodType_6}" 
+        or rest.restaurant_type = "${req.query.FoodType_7}" or rest.restaurant_type = "${req.query.FoodType_8}" or rest.restaurant_type = "${req.query.FoodType_9}"
+        ORDER BY A.avg_price ${req.query.SortOrder};`,
         (err, result) => {  if(err){
                              if(err.kind == "not_found"){
                                 res.status(404).send({
@@ -100,19 +112,19 @@ exports.FindBy= (req,res) => {
                             }
                             }
                             else{
-                                res.send(result);
+                                res.send({result:result, total_page:total_page});
                             }
                         });
 
       }
-      else if(req.query.SortByName == 1) {
+      else if(req.query.SortType == "Name") {
 
-        sql.query(`SELECT rest.restaurant_name
+        sql.query(`SELECT *
                 FROM restaurant.restaurant_list as rest
-                WHERE rest.restaurant_type = ${req.query.FoodType_1} or rest.restaurant_type = ${req.query.FoodType_2} rest.restaurant_type = ${req.query.FoodType_3} 
-                 or rest.restaurant_type = ${req.query.FoodType_4} or rest.restaurant_type = ${req.query.FoodType_5} or rest.restaurant_type = ${req.query.FoodType_6} 
-                 or rest.restaurant_type = ${req.query.FoodType_7} or rest.restaurant_type = ${req.query.FoodType_8} or rest.restaurant_type = ${req.query.FoodType_9} 
-                ORDER BY rest.restaurant_name ${req.query.sortOrder};`,
+                WHERE rest.restaurant_type = "${req.query.FoodType_1}" or rest.restaurant_type = "${req.query.FoodType_2}" or rest.restaurant_type = "${req.query.FoodType_3}" 
+                or rest.restaurant_type = "${req.query.FoodType_4}" or rest.restaurant_type = "${req.query.FoodType_5}" or rest.restaurant_type = "${req.query.FoodType_6}" 
+                or rest.restaurant_type = "${req.query.FoodType_7}" or rest.restaurant_type = "${req.query.FoodType_8}" or rest.restaurant_type = "${req.query.FoodType_9}"
+                ORDER BY rest.restaurant_name ${req.query.SortOrder};`,
                  (err, result) =>{  if(err){
                     if(err.kind == "not_found"){
                         res.status(404).send({
@@ -126,11 +138,34 @@ exports.FindBy= (req,res) => {
                     }
                 }
                 else{
-                    res.send(result);
+                    res.send({result:result, total_page:total_page});
                 }
         });
       }
-      else {
+      else if(req.query.SortType == "Rating") {
+        sql.query(`SELECT *
+                FROM restaurant.restaurant_list as rest
+                WHERE rest.restaurant_type = "${req.query.FoodType_1}" or rest.restaurant_type = "${req.query.FoodType_2}" or rest.restaurant_type = "${req.query.FoodType_3}" 
+                or rest.restaurant_type = "${req.query.FoodType_4}" or rest.restaurant_type = "${req.query.FoodType_5}" or rest.restaurant_type = "${req.query.FoodType_6}" 
+                or rest.restaurant_type = "${req.query.FoodType_7}" or rest.restaurant_type = "${req.query.FoodType_8}" or rest.restaurant_type = "${req.query.FoodType_9}"
+                ORDER BY rest.restaurant_rating ${req.query.SortOrder};`,
+                 (err, result) =>{  if(err){
+                    if(err.kind == "not_found"){
+                        res.status(404).send({
+                            message: `Failed to sort restaurant by name.`
+                        });
+                    }
+                    else{
+                        res.status(500).send({
+                        message: `Can not sort restaurant by name due to error.`
+                        });
+                    }
+                }
+                else{
+                    res.send({result:result, total_page:total_page});
+                }
+        });
+      }else {
         res.status(500).send({
             message: `cannot sort by either name or price due to request error.`
             });

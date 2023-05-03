@@ -8,7 +8,7 @@ module.exports = app => {
 
     // main page, default display the imformation of restaurants (10 for each page)
     // using Page for (Page-1)*10- Page*10 items
-    router.get("/", rest.DisplayRest);
+    //router.get("/", rest.DisplayRest);
 
     // main page, using for sorting restaurants
     // using SortByName, SortByPrice to change the sort order.
@@ -16,9 +16,20 @@ module.exports = app => {
 
     // using FoodType_1, FoodType_2.... to control the food fliter.
     // for example FoodType_1 == fastfood , return all food with fast food type 
+    // ** FoodTypes : fastfood | Janpense food | Chinese food | Korean food | Grill | India food | Thai food | Mexican food
     // upto 9 different food type
+    // *BY default, should use all 9 FoodType to show all restaurants*
+    // using SortTtype to change (Name| Price | Rating)
     // using SortOrder to change (ASC | DESC)
-    router.get("/sort", rest.FindBy);
+
+    // return 2 things
+    // result : require infomation
+    // total_page: total number of items under fliter
+
+    //Example http://localhost:8080/api/rest/?SortType=Price&SortOrder=ASC&FoodType_1=fastfood
+    // It return list of festfood restaurants ordered by price with ACS order
+    // The total_page is 17 which means we have 17 festfood restaurants.
+    router.get("/", rest.FindBy);
 
     
     router.put("/rt",rest.Restrating);
@@ -35,6 +46,9 @@ module.exports = app => {
     // using SortBy (name | recommand) to change 
     // using SortOrder to change (ASC | DESC)
     router.get("/:id/menu" , rest.RestDishSort);
+
+    
+    //User API part
 
     
     
