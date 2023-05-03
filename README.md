@@ -40,3 +40,13 @@ For a seamless experience, it is recommended to run both the front-end client an
 ## Referance
 
 [CS 222 Project](https://courses.grainger.illinois.edu/CS222/sp2023/)
+
+[React](https://react.dev/)
+
+[MUI](https://mui.com/)
+
+[MySQL](https://www.mysql.com/)
+
+[Express](https://expressjs.com/)
+
+[npm](https://www.npmjs.com/)
