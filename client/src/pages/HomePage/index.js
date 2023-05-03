@@ -11,14 +11,34 @@ import RestaurantReferral from '../../components/RestaurantReferral'
 import Footer from '../../components/Footer'
 
 const restaurantIDs = [17972286928074856000, 6439431995832154000, 14858487583252476000, 14082953212814273000, 6249083880162181000]
-const allTypes = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
-
+const allTypes = ['Chinese restaurant', 'Mexican restaurant', 'Fast food restaurant', 'American restaurant', 'Barbecue restaurant', 'Pizza restaurant', 'Italian restaurant', 'Sandwich shop', 'Other'];
+/*
+Restaurant: 45
+Chinese restaurant: 21
+Mexican restaurant: 15
+Fast food restaurant: 14
+American restaurant: 12
+Barbecue restaurant: 9
+Pizza restaurant: 9
+Italian restaurant: 8
+Sandwich shop: 7
+Korean restaurant: 6
+Bar & grill: 5
+Thai restaurant: 5
+Breakfast restaurant: 4
+Diner: 4
+Steak house: 4
+Middle Eastern restaurant: 4
+Chicken restaurant: 3
+Japanese restaurant: 3
+Hamburger restaurant: 3
+*/
 
 function HomePage(props) {
     const { user, handleLogout } = props;
 
     const [order, setOrder] = useState('desc');
-    const [orderBy, setOrderBy] = useState('Rating');
+    const [orderBy, setOrderBy] = useState('restaurant_rating');
 
     // Need to check API is 0-index or 1-index
     const [page, setPage] = useState(1);
@@ -29,6 +49,7 @@ function HomePage(props) {
 
     const [restaurantDetails, setRestaurantDetails] = useState([]);
 
+    const [foodType, setFoodType] = useState('all');
 
     // initialize selectedTypes state using allTypes array
     const [selectedTypes, setSelectedTypes] = useState(
@@ -38,7 +59,7 @@ function HomePage(props) {
         }, {})
     );
 
-    const [submittedTypes, setSubmittedTypes] = useState(selectedTypes);
+    // const [submittedTypes, setSubmittedTypes] = useState(selectedTypes);
     
     // update selectedTypes state on type change
     const handleTypeChange = (typeName) => {
@@ -53,12 +74,19 @@ function HomePage(props) {
         setSelectedTypes(
             Object.fromEntries(allTypes.map((type) => [type, true]))
         );
+        setFoodType('all');
     };
 
     // update selectedTypesString and page on submit
     const handleSubmitSelection = () => {
         setPage(1);
-        setSubmittedTypes(selectedTypes);
+        const selectedTypesArray = Object.entries(selectedTypes)
+            .filter(([_, isSelected]) => isSelected)
+            .map(([typeName, _]) => typeName);
+        
+        setFoodType(selectedTypesArray
+            .map((typeName, index) => `${encodeURIComponent(typeName)}`)
+            .join(','));
     };
 
     useEffect(() => {
@@ -124,26 +152,18 @@ function HomePage(props) {
         };
         */
         const fetchData = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/list?page=${page}&sortField=${orderBy}&sortOrder=${order}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/list?page=${page}&sortField=${orderBy}&sortOrder=${order}&FoodType=${foodType}`);
 
             // console.log(order);
             // console.log(orderBy);
             // console.log(page);
-            const submittedTypesArray = Object.entries(submittedTypes)
-                .filter(([_, isSelected]) => isSelected)
-                .map(([typeName, _]) => typeName);
-
-            const queryParams = submittedTypesArray
-                .map((typeName, index) => `FoodType_${index + 1}=${encodeURIComponent(typeName)}`)
-                .join('&');
-            console.log(`${process.env.REACT_APP_API_URL}/api/rest/?SortType=${orderBy}&SortOrder=${order}&page=${page}&${queryParams}`);
 
             setMaxPage(response.data.maxPage); // Get the maxPage from the API response
             setRestaurantData(response.data.data); // Get data from the API response
         };
 
         fetchData();
-    }, [order, orderBy, page, submittedTypes]);
+    }, [order, orderBy, page, foodType]);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';

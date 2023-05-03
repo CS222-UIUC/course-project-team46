@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, TextField, Button } from "@mui/material";
+import { Box, TextField, Button, Rating } from "@mui/material";
 
 function CommentForm(props) {
-    const { user, currentComment, setCurrentComment, handleSubmit } = props;
+    const { user, currentComment, setCurrentComment, handleSubmit, userRate, setUserRate } = props;
 
     if (!user) {
         return <p>Please login first before leave a comment.</p>
@@ -10,6 +10,13 @@ function CommentForm(props) {
     
     return (
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+            <Rating
+                name="restaurant-rating"
+                value={userRate}
+                onChange={(event, newValue) => {
+                    setUserRate(newValue);
+                }}
+            />
             <TextField
                 fullWidth
                 label="Add a comment"

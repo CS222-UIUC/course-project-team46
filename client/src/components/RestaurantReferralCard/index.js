@@ -6,9 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useNavigate } from "react-router-dom";
 
 function RestaurantReferralCard(props) {
@@ -57,9 +55,7 @@ function RestaurantReferralCard(props) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
+                <Box />
             </CardActions>
         </Card>
     );

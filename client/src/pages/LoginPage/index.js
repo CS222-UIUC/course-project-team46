@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+
 import { Link } from "react-router-dom";
 import Form from '../../utils/Forms'
 import { Box, Button, Checkbox, FormControlLabel, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
@@ -79,14 +81,19 @@ function LoginPage(props) {
         };
     }
 
-    const userLogin = (userData, remember) => {
-        // @todo send it to backend to check ...
-        // if (valid) -> login
-        handleLogin(userData, remember)
-        
-        // else
-        // alert("wrong");
-    }
+    const userLogin = async (userData, remember) => {
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/login`, userData);
+            if (response.data) {
+                handleLogin(response.data, remember);
+            } else {
+                alert("wrong username or password");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("wrong username or password");
+        }
+    };
 
     const authenticate = (e) => {
         e.preventDefault();

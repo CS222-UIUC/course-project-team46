@@ -20,6 +20,7 @@ function RestaurantDetailPage(props) {
     const [restaurant, setRestaurant] = useState(null);
     const [commits, setCommits] = useState([]);
     const [menu, setMenu] = useState([]);
+    const [updateComment, setUpdateComment] = useState(false);
 
     // fetch restaurant detail data
     useEffect(() => {
@@ -35,59 +36,28 @@ function RestaurantDetailPage(props) {
         }
     }, [id, restaurant]);
 
+    // fetch restaurant menu data
     useEffect(() => {
-        setCommits([
-            {
-                "commits_id": 1,
-                "user_id": 123,
-                "username": "Peter",
-                "createdAt": "2 days ago",
-                "user_rate": 4,
-                "score": 12,
-                "user_avatar": "/static/images/avatar/Default.jpeg",
-                "detail": "this is a commit"
-            },
-            {
-                "commits_id": 2,
-                "user_id": 123,
-                "username": "Peter",
-                "createdAt": "2 weeks ago",
-                "user_rate": 3,
-                "score": 2,
-                "user_avatar": "/static/images/avatar/Default.jpeg",
-                "detail": "this is another commit"
-            },
-            {
-                "commits_id": 3,
-                "user_id": 123,
-                "username": "Peter",
-                "createdAt": "1 month ago",
-                "user_rate": 5,
-                "score": 7,
-                "user_avatar": "/static/images/avatar/Default.jpeg",
-                "detail": "Hello"
-            }
-        ]);
-        setMenu([
-            {
-                "dish_id": 1,
-                "dish_name": "Bruschette with Tomato",
-                "dish_price": 26.89,
-                "recommand_numebr": 4.7
-            },
-            {
-                "dish_id": 2,
-                "dish_name": "Salmon nigiri",
-                "dish_price": 26.72,
-                "recommand_numebr": 3.9
-            },
-            {
-                "dish_id": 3,
-                "dish_name": "Pasta Carbonara",
-                "dish_price": 37.57,
-                "recommand_numebr": 2.4
-            }]);
-    }, []);
+        const fetchRestaurant = async () => {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/${id}/menu`);
+            setMenu(response.data);
+        };
+        fetchRestaurant();
+    }, [id]);
+
+    // fetch restaurant commits data
+    useEffect(() => {
+        const fetchRestaurant = async () => {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/${id}/comments`);
+            setCommits(response.data);
+        };
+        fetchRestaurant();
+        if (updateComment) {
+            fetchRestaurant();
+            setUpdateComment(false);
+        }
+    }, [id, updateComment]);
+
 
     /*
     function handleGoBack() {
@@ -128,6 +98,9 @@ function RestaurantDetailPage(props) {
                             <Comments 
                                 user={user}
                                 commitList={commits}
+                                restaurantId={id}
+                                restaurantRating={restaurant.restaurant_rating}
+                                setUpdateComment={setUpdateComment}
                             />
                         </Paper>
                     </Grid>

@@ -1,22 +1,9 @@
-import React from "react";
-import { Avatar, Box, Typography, Grid, Rating, IconButton } from "@mui/material";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import { Avatar, Box, Typography, Grid, Rating } from "@mui/material";
+
+import LikeDislikeActions from "../LikeDislikeActions";
 
 function SingleComment(props) {
-    const { commitData } = props;
-
-    const handleLike = () => {
-        console.log("Liked!");
-        commitData.score += 1;
-        // @todo Logic to implement the like function
-      };
-    
-      const handleDislike = () => {
-        console.log("Disliked!");
-        commitData.score -= 1;
-        // @todo Logic to implement the dislike function
-      };
+    const { commitData, restaurantId } = props;
 
     return (
         <Grid container alignItems="flex-start" spacing={2} sx={{ mb: 2 }}>
@@ -41,20 +28,14 @@ function SingleComment(props) {
                 <Typography variant="body1" sx={{ mt: 1 }}>
                     {commitData.detail}
                 </Typography>
-                <Box sx={{ mt: 1 }}>
-                    <Typography variant="caption" color="text.secondary">
-                        {commitData.score}
-                    </Typography>
-                    <IconButton size="small" onClick={handleLike}>
-                        <ThumbUpIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton size="small" onClick={handleDislike}>
-                        <ThumbDownIcon fontSize="small" />
-                    </IconButton>
-                </Box>
+                <LikeDislikeActions
+                    initialScore={commitData.score}
+                    commentId={commitData.commits_id}
+                    restaurantId={restaurantId}
+                />
             </Grid>
         </Grid>
     );
-};
+}
 
 export default SingleComment;
