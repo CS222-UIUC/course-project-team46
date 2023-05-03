@@ -33,7 +33,7 @@ Refer to the README.md file in the `client` directory for instructions on settin
 
 ### Back-end Server
 
-Refer to the README.md file in the `server` directory for instructions on setting up and running the back-end server application. You can find it [here](./server/README.md).
+Refer to the README.md file in the `server` directory for instructions on setting up and running the back-end server application. You can find it [here](./backend/README.md).
 
 For a seamless experience, it is recommended to run both the front-end client and back-end server concurrently.
 
