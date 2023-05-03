@@ -8,6 +8,8 @@ import AppBar from '../../components/AppBar'
 import Footer from '../../components/Footer'
 import RestaurantListWithFilter from '../../components/RestaurantListWithFilter'
 
+const allTypes = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
+
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -17,7 +19,7 @@ function SearchPage(props) {
 
     const query = useQuery().get('q');
     const [order, setOrder] = useState('desc');
-    const [orderBy, setOrderBy] = useState('rate');
+    const [orderBy, setOrderBy] = useState('restaurant_rating');
 
     // Need to check API is 0-index or 1-index
     const [page, setPage] = useState(1);
@@ -26,19 +28,84 @@ function SearchPage(props) {
 
     const [restaurantData, setRestaurantData] = useState([]);
 
-    const [selectedTypesString, setSelectedTypesString] = useState('All');
+    const [foodType, setFoodType] = useState('all');
+
+    // initialize selectedTypes state using allTypes array
+    const [selectedTypes, setSelectedTypes] = useState(
+        allTypes.reduce((acc, type) => {
+            acc[type] = true;
+            return acc;
+        }, {})
+    );
+
+    // const [submittedTypes, setSubmittedTypes] = useState(selectedTypes);
+    
+    // update selectedTypes state on type change
+    const handleTypeChange = (typeName) => {
+        setSelectedTypes((prevState) => ({
+            ...prevState,
+            [typeName]: !prevState[typeName],
+        }));
+    };
+    
+    // reset selectedTypes state to all types
+    const handleResetSelection = () => {
+        setSelectedTypes(
+            Object.fromEntries(allTypes.map((type) => [type, true]))
+        );
+        setFoodType('all');
+    };
+
+    // update selectedTypesString and page on submit
+    const handleSubmitSelection = () => {
+        setPage(1);
+        const selectedTypesArray = Object.entries(selectedTypes)
+            .filter(([_, isSelected]) => isSelected)
+            .map(([typeName, _]) => typeName);
+        
+        setFoodType(selectedTypesArray
+            .map((typeName, index) => `${encodeURIComponent(typeName)}`)
+            .join(','));
+    };
+    
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`/api/restaurant/search?q=${query}&page=${page}&sortField=${orderBy}&sortOrder=${order}&type=${selectedTypesString}`);
-            
+            // TODO: change the url to the real API url
+            /*
+            const submittedTypesArray = Object.entries(submittedTypes)
+                .filter(([_, isSelected]) => isSelected)
+                .map(([typeName, _]) => typeName);
+
+            const queryParams = submittedTypesArray
+                .map((typeName, index) => `FoodType_${index + 1}=${encodeURIComponent(typeName)}`)
+                .join('&');
+
+            console.log(`${process.env.REACT_APP_API_URL}/api/rest/search?restaurant_name=${query}&SortType=${orderBy}&SortOrder=${order}&page=${page}&${queryParams}`)
+
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/rest/search?restaurant_name=${query}&SortType=${orderBy}&SortOrder=${order}&page=${page}&${queryParams}`);
+            */
+
+            console.log(`${process.env.REACT_APP_API_URL}/api/restaurant/search?q=${query}&page=${page}&sortField=${orderBy}&sortOrder=${order}&FoodType=${foodType}`);
+
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/restaurant/search?q=${query}&page=${page}&sortField=${orderBy}&sortOrder=${order}&FoodType=${foodType}`);
+
+
+            // console.log(order);
+            // console.log(orderBy);
+            // console.log(page);
+
+            // setMaxPage(response.data.total_page[0].pages); // Get the maxPage from the API response
+            // setRestaurantData(response.data.result); // Get data from the API response
             setMaxPage(response.data.maxPage); // Get the maxPage from the API response
             setRestaurantData(response.data.data); // Get data from the API response
+            
         };
 
         fetchData();
-    }, [query, order, orderBy, page, selectedTypesString]);
+    }, [query, order, orderBy, page, foodType]);
 
+    /*
     useEffect(() => {
         setRestaurantData([
             {
@@ -112,6 +179,7 @@ function SearchPage(props) {
               "restaurant_type": "Thai food"
             }])
     }, []);
+     */
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -143,7 +211,11 @@ function SearchPage(props) {
                                 orderBy={orderBy}
                                 handleRequestSort={handleRequestSort}
                                 handleChangePage={handleChangePage}
-                                setSelectedTypesString={setSelectedTypesString}
+                                allTypes={allTypes}
+                                selectedTypes={selectedTypes}
+                                handleTypeChange={handleTypeChange}
+                                handleResetSelection={handleResetSelection}
+                                handleSubmitSelection={handleSubmitSelection}
                             />
                         </Grid>
                         <Grid item xs={0.5} />

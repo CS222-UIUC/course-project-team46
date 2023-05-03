@@ -1,47 +1,10 @@
-import { React, useState } from "react";
 
 import { Grid } from '@mui/material';
 import RestaurantList from '../RestaurantList';
 import Filter from '../Filter';
 
-const allTypes = ['fastfood', 'Japanese food', 'Chinese food', 'Grill', 'Korean food', 'Thai food', 'India food', 'Mexican food', 'Other'];
-
 function RestaurantListWithFilter(props) {
-    const { restaurantData, page, setPage, maxPage, order, orderBy, handleRequestSort, handleChangePage, setSelectedTypesString } = props;
-
-    // initialize selectedTypes state using allTypes array
-    const [selectedTypes, setSelectedTypes] = useState(
-        allTypes.reduce((acc, type) => {
-            acc[type] = true;
-            return acc;
-        }, {})
-    );
-    
-    // update selectedTypes state on type change
-    const handleTypeChange = (typeName) => {
-        setSelectedTypes((prevState) => ({
-            ...prevState,
-            [typeName]: !prevState[typeName],
-        }));
-    };
-    
-    // reset selectedTypes state to all types
-    const handleResetSelection = () => {
-        setSelectedTypes(
-            Object.fromEntries(allTypes.map((type) => [type, true]))
-        );
-        setSelectedTypesString('All');
-    };
-
-    // update selectedTypesString and page on submit
-    const handleSubmitSelection = () => {
-        setSelectedTypesString(
-            Object.keys(selectedTypes)
-                .filter((type) => selectedTypes[type])
-                .join(',')
-        );
-        setPage(1);
-    };
+    const { restaurantData, page, maxPage, order, orderBy, handleRequestSort, handleChangePage, allTypes, selectedTypes, handleTypeChange, handleResetSelection, handleSubmitSelection } = props;
 
     return (
         <Grid container spacing={2}>

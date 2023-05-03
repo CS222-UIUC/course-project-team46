@@ -1,4 +1,3 @@
-// RestaurantDetailPageTabs.js
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -20,7 +19,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <Typography component="div">{children}</Typography>
                 </Box>
             )}
         </div>
@@ -32,7 +31,7 @@ function a11yProps(index) {
         id: `simple-tab-${index}`,
         'aria-controls': `simple-tabpanel-${index}`,
     };
-  }
+}
 
 const RestaurantDetailPageTabs = ({ detail, menu }) => {
     const [value, setValue] = useState(0);

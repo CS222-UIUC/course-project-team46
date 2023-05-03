@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+
 import { Box, Button, Container, Grid, Link as MuiLink, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link as RouterLink } from "react-router-dom";
@@ -80,14 +82,19 @@ function RegisterPage(props) {
         };
     }
 
-    const userRegister = (userData) => {
-        // @todo send it to backend to check ...
-        // if (valid) -> login
-        handleLogin(userData, false)
-
-        // else
-        // alert("wrong");
-    }
+    const userRegister = async (userData) => {
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`, userData);
+            if (response.data) {
+                handleLogin(response.data, false);
+            } else {
+                alert("Something went wrong!");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("User already exists! If you have an account, please login.");
+        }
+    };
 
     const register = (e) => {
         e.preventDefault();
