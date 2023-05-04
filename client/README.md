@@ -1,5 +1,7 @@
 # YumRev - Restaurant Review Platform
 
+[![javascript](https://img.shields.io/badge/javascript-%23007ACC.svg?style=for-the-badge&logo=javascript&logoColor=white)](https://www.javascript.com/) [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/) [![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/)
+
 YumRev is a web application for rating and reviewing restaurants, built using React and Material-UI. The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Table of Contents

@@ -1,5 +1,7 @@
 # YumRev Backend - Restaurant Review Platform
 
+[![javascript](https://img.shields.io/badge/javascript-%23007ACC.svg?style=for-the-badge&logo=javascript&logoColor=white)](https://www.javascript.com/) [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/) [![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+
 YumRev Backend is the server-side component of the YumRev web application, built using Express.js and MySQL.
 
 ## Table of Contents
