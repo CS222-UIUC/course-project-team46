@@ -8,10 +8,6 @@ lszz
 
 ## Group member names and NetIDs
 
-* : front-end
-* : front-end
-* : back-end
-
 * [Peter Zhu(bowenz12)](https://github.com/BowenZ217) created the front-end for HomePage, LoginPage, RegisterPage, and SearchPage. He also implemented the comments component on the RestaurantDetailPage, and worked on some of the APIs with Boyang Sun.
 
 * [Xing Zhao(xingz6)](https://github.com/xingz6) created the front-end for RestaurantDetailPage, LoginPage, and RegisterPage. He also collaborated with Peter Zhu on front-end development, focusing on the overall design and user experience of the platform.
