@@ -28,7 +28,7 @@ https://github.com/CS222-UIUC/course-project-team46.git
 
 ```bash
 cd course-project-team46
-cd backend
+cd client/test_backend
 ```
 
 3. Install the dependencies:
