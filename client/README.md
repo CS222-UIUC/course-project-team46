@@ -9,6 +9,7 @@ YumRev is a web application for rating and reviewing restaurants, built using Re
 - [YumRev - Restaurant Review Platform](#yumrev---restaurant-review-platform)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
+  - [Testing without a Database](#testing-without-a-database)
   - [Available Scripts](#available-scripts)
     - [`npm start`](#npm-start)
     - [`npm run build`](#npm-run-build)
@@ -46,6 +47,37 @@ npm start
 ```
 
 Now the application should be running on [http://localhost:3000](http://localhost:3000) in your browser.
+
+You can add a section in your README file to let users know that they can use the `test_backend` folder for testing purposes without a database. Here's an example of how you can include this information:
+
+## Testing without a Database
+
+If you don't have a database set up but still want to test the application, you can use the `test_backend` folder inside the `client` folder. The `test_backend` contains a simplified version of the back-end that uses Express and does not require a database.
+
+To use the `test_backend`, follow these steps:
+
+1. Navigate to the `test_backend` folder:
+
+```bash
+cd course-project-team46
+cd client/test_backend
+```
+
+2. Install the dependencies:
+
+```bash
+npm install
+```
+
+3. Start the Express server:
+
+```bash
+npm start
+```
+
+Now the test back-end server should be running on [http://localhost:8080](http://localhost:8080).
+
+Please note that this test back-end has limited functionality compared to the full back-end with a database. It is meant for testing purposes only.
 
 ## Available Scripts
 
