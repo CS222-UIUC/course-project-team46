@@ -8,9 +8,17 @@ lszz
 
 ## Group member names and NetIDs
 
-* Peter Zhu(bowenz12): front-end
-* Xing Zhao(xingz6): front-end
-* Boyang Sun(boyangs3): back-end
+* : front-end
+* : front-end
+* : back-end
+
+* [Peter Zhu(bowenz12)](https://github.com/BowenZ217) created the front-end for HomePage, LoginPage, RegisterPage, and SearchPage. He also implemented the comments component on the RestaurantDetailPage, and worked on some of the APIs with Boyang Sun.
+
+* [Xing Zhao(xingz6)](https://github.com/xingz6) created the front-end for RestaurantDetailPage, LoginPage, and RegisterPage. He also collaborated with Peter Zhu on front-end development, focusing on the overall design and user experience of the platform.
+
+* [Boyang Sun(boyangs3)](https://github.com/FusomeSun) created the back-end for the project, focusing on API and database implementation. He ensured that the front-end components were able to interact seamlessly with the back-end services and data.
+
+Everyone tested their code and contributed to the overall design and implementation of the project.
 
 ## Project Introduction
 
@@ -22,7 +30,29 @@ Our project has a React, JavaScript as frontend, Express, MySQL as the backend.
 
 YumRev is a full-stack web application consisting of a front-end client built using React and Material-UI and a back-end server responsible for handling data and user authentication. we used the MUI component library to make our each component concise and save us much work. 
 
-The SQLite database has tables for data managenment in order for users to browse a list of restaurants, view details of each restaurant, rate and comment on their experiences, and get personalized recommendations based on user preferences and ratings.
+The database has tables for data managenment in order for users to browse a list of restaurants, view details of each restaurant, rate and comment on their experiences, and get personalized recommendations based on user preferences and ratings.
+
+## Components
+
+### HomePage
+
+The HomePage displays a list of restaurants and features a search bar for users to find specific restaurants. It also provides navigation options to the LoginPage and RegisterPage for user authentication.
+
+### LoginPage
+
+The LoginPage is the starting point for users who want to access additional features of the website, such as leaving comments or rating restaurants on the RestaurantDetailPage. It interacts with other components by redirecting to other pages if the user inputs accurate information, which the backend checks.
+
+### RegisterPage
+
+The RegisterPage allows new users to create an account to access additional features of the website. After successful registration, users are redirected to the LoginPage to log in next time.
+
+### SearchPage
+
+The SearchPage displays search results for users based on the input from the search bar on the HomePage. Users can view a list of restaurants that match their search criteria.
+
+### RestaurantDetailPage
+
+The RestaurantDetailPage provides more in-depth information about a specific restaurant, such as photos, ratings, and reviews. Users must log in before they can leave a comment or rate a restaurant on this page. The RestaurantDetailPage interacts with other components, such as the LoginPage, to ensure only authenticated users can leave comments or rate restaurants.
 
 ## Running Instructions
 
