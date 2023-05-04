@@ -1,5 +1,7 @@
 # YumRev
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+
 ## Group Name
 
 lszz
@@ -44,6 +46,10 @@ Refer to the README.md file in the `client` directory for instructions on settin
 Refer to the README.md file in the `server` directory for instructions on setting up and running the back-end server application. You can find it [here](./backend/README.md).
 
 For a seamless experience, it is recommended to run both the front-end client and back-end server concurrently.
+
+## Video Presentation
+
+[Link](https://mediaspace.illinois.edu/media/t/1_zccxv1gn)
 
 ## Reference
 
