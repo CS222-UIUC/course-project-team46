@@ -1,28 +1,21 @@
 # YumRev
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Group Name
-
-lszz
-
-## Group member names and NetIDs
-
-* [Peter Zhu(bowenz12)](https://github.com/BowenZ217) created the front-end for HomePage, LoginPage, RegisterPage, and SearchPage. He also implemented the comments component on the RestaurantDetailPage, and worked on some of the APIs with Boyang Sun.
-
-* [Xing Zhao(xingz6)](https://github.com/xingz6) created the front-end for RestaurantDetailPage, LoginPage, and RegisterPage. He also collaborated with Peter Zhu on front-end development, focusing on the overall design and user experience of the platform.
-
-* [Boyang Sun(boyangs3)](https://github.com/FusomeSun) created the back-end for the project, focusing on API and database implementation. He ensured that the front-end components were able to interact seamlessly with the back-end services and data.
-
-Everyone tested their code and contributed to the overall design and implementation of the project.
+- [Project Introduction](#project-introduction)
+- [System Overview](#system-overview)
+- [Components](#components)
+- [Running Instructions](#running-instructions)
+- [Group members](#group-member-names-and-netids)
+- [Video Presentation](#video-presentation)
 
 ## Project Introduction
 
 It’s always difficult to choose restaurants for meals if there is no recommendation. Restaurant Evaluation collects dishes, users’ ratings, comments in text format towards multiple restaurants and then saves them, providing suggestions before you make the decision.
 
 ## System Overview
-Our project has a React, JavaScript as frontend, Express, MySQL as the backend.
 
+Our project has a React, JavaScript as frontend, Express, MySQL as the backend.
 
 YumRev is a full-stack web application consisting of a front-end client built using React and Material-UI and a back-end server responsible for handling data and user authentication. we used the MUI component library to make our each component concise and save us much work. 
 
@@ -50,6 +43,9 @@ The SearchPage displays search results for users based on the input from the sea
 
 The RestaurantDetailPage provides more in-depth information about a specific restaurant, such as photos, ratings, and reviews. Users must log in before they can leave a comment or rate a restaurant on this page. The RestaurantDetailPage interacts with other components, such as the LoginPage, to ensure only authenticated users can leave comments or rate restaurants.
 
+### images:
+![image](pictures/cs222_final_pres.drawio.png)
+
 ## Running Instructions
 
 To set up and run the YumRev application, follow the instructions provided in the respective README files for the front-end client and back-end server.
@@ -58,10 +54,6 @@ Then:
 
 1. open the website.
 2. register as a user and begin to searching, rating and commenting on the website.
-
-
-### images:
-![image](pictures/cs222_final_pres.drawio.png)
 
 ### Front-end Client
 
@@ -72,6 +64,20 @@ Refer to the README.md file in the `client` directory for instructions on settin
 Refer to the README.md file in the `server` directory for instructions on setting up and running the back-end server application. You can find it [here](./backend/README.md).
 
 For a seamless experience, it is recommended to run both the front-end client and back-end server concurrently.
+
+## Group Name
+
+lszz
+
+## Group member names and NetIDs
+
+* [Peter Zhu(bowenz12)](https://github.com/BowenZ217) created the front-end for HomePage, LoginPage, RegisterPage, and SearchPage. He also implemented the comments component on the RestaurantDetailPage, and worked on some of the APIs with Boyang Sun.
+
+* [Xing Zhao(xingz6)](https://github.com/xingz6) created the front-end for RestaurantDetailPage, LoginPage, and RegisterPage. He also collaborated with Peter Zhu on front-end development, focusing on the overall design and user experience of the platform.
+
+* [Boyang Sun(boyangs3)](https://github.com/FusomeSun) created the back-end for the project, focusing on API and database implementation. He ensured that the front-end components were able to interact seamlessly with the back-end services and data.
+
+Everyone tested their code and contributed to the overall design and implementation of the project.
 
 ## Video Presentation
 
